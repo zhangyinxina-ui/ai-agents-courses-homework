@@ -1,0 +1,42 @@
+schema_version = "1.4"
+
+artifacts = [
+  "/app/figure.png",
+  "/app/plot.py",
+  "/app/plotted_values.json",
+]
+
+[task]
+name = "cmu-11768/viz-task-05"
+version = "1.0.0"
+description = "Grid-locked AC energy delivered by solar array"
+keywords = ["visualization", "matplotlib", "csv", "aggregation"]
+
+[[task.authors]]
+name = "CMU 11-768 Student"
+
+[metadata]
+task_class = "multi_series_derived_metric"
+chart_family = "bar"
+source = "tasks/task_05/task.json (sha256 7b5293f0049b60983abf59c78de5aa1ad2d8d4ac050c47e96edd40951a6eff65)"
+
+[verifier]
+timeout_sec = 600.0
+
+[verifier.env]
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+network_mode = "no-network"
+build_timeout_sec = 900.0
+os = "linux"
+cpus = 1
+memory_mb = 2048
+mcp_servers = []
+
+[environment.env]
+MPLBACKEND = "Agg"
+
+[solution.env]

@@ -1,0 +1,1 @@
+{"type": "message_end", "message": {"role": "assistant", "stopReason": "end_turn", "content": [{"type": "text", "text": "bivouac"}], "usage": {"input": 756, "output": 71, "cacheRead": 0, "cacheWrite": 0, "cost": {"total": 0.000236}}}}

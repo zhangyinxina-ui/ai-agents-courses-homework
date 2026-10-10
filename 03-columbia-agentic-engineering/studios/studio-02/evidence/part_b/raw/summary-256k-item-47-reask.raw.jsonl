@@ -1,0 +1,1 @@
+{"type": "message_end", "message": {"role": "assistant", "stopReason": "end_turn", "content": [{"type": "text", "text": "drawing room"}], "usage": {"input": 1130, "output": 524, "cacheRead": 0, "cacheWrite": 0, "cost": {"total": 0.000911}}}}

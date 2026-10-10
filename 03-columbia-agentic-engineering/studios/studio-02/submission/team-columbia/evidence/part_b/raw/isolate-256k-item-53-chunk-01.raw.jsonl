@@ -1,0 +1,1 @@
+{"type": "message_end", "message": {"role": "assistant", "stopReason": "end_turn", "content": [{"type": "text", "text": "\"On July 1, 1806, two young English gentlemen, Daniel and William Constable, arrived in New York.\""}], "usage": {"input": 80398, "output": 108, "cacheRead": 0, "cacheWrite": 0, "cost": {"total": 0.020229}}}}

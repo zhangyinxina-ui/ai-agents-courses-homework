@@ -1,0 +1,553 @@
+{
+  "predictions": [
+    {
+      "run_id": "001",
+      "errors": [
+        {
+          "family": "execution_failure",
+          "evidence": "figure.png was not created in the workspace root; the agent saved to 'plots/box_plot.png' instead of 'figure.png'."
+        }
+      ]
+    },
+    {
+      "run_id": "004",
+      "errors": []
+    },
+    {
+      "run_id": "008",
+      "errors": []
+    },
+    {
+      "run_id": "009",
+      "errors": []
+    },
+    {
+      "run_id": "010",
+      "errors": [
+        {
+          "family": "execution_failure",
+          "evidence": "No figure.png artifact was produced by the run."
+        }
+      ]
+    },
+    {
+      "run_id": "013",
+      "errors": []
+    },
+    {
+      "run_id": "016",
+      "errors": []
+    },
+    {
+      "run_id": "021",
+      "errors": [
+        {
+          "family": "wrong_chart",
+          "evidence": "Task requires both x-axis and y-axis labels, but at least one axis label is missing."
+        }
+      ]
+    },
+    {
+      "run_id": "022",
+      "errors": []
+    },
+    {
+      "run_id": "023",
+      "errors": []
+    },
+    {
+      "run_id": "025",
+      "errors": [
+        {
+          "family": "wrong_data",
+          "evidence": "Task provides input file(s) ['data.csv'], but the plotting script never reads them and hardcodes numbers instead."
+        },
+        {
+          "family": "wrong_chart",
+          "evidence": "Task requires a chart title, but none was set in the plotting code."
+        }
+      ]
+    },
+    {
+      "run_id": "026",
+      "errors": [
+        {
+          "family": "wrong_chart",
+          "evidence": "Task requires a chart title, but none was set in the plotting code."
+        }
+      ]
+    },
+    {
+      "run_id": "028",
+      "errors": []
+    },
+    {
+      "run_id": "029",
+      "errors": [
+        {
+          "family": "wrong_data",
+          "evidence": "Instructions require a cumulative / running total calculation, which is missing from the script."
+        }
+      ]
+    },
+    {
+      "run_id": "030",
+      "errors": []
+    },
+    {
+      "run_id": "031",
+      "errors": []
+    },
+    {
+      "run_id": "034",
+      "errors": [
+        {
+          "family": "wrong_chart",
+          "evidence": "Task requires a chart title, but none was set in the plotting code."
+        }
+      ]
+    },
+    {
+      "run_id": "038",
+      "errors": []
+    },
+    {
+      "run_id": "039",
+      "errors": []
+    },
+    {
+      "run_id": "046",
+      "errors": []
+    },
+    {
+      "run_id": "047",
+      "errors": []
+    },
+    {
+      "run_id": "050",
+      "errors": []
+    },
+    {
+      "run_id": "051",
+      "errors": []
+    },
+    {
+      "run_id": "052",
+      "errors": []
+    },
+    {
+      "run_id": "053",
+      "errors": [
+        {
+          "family": "execution_failure",
+          "evidence": "No figure.png artifact was produced by the run."
+        }
+      ]
+    },
+    {
+      "run_id": "055",
+      "errors": []
+    },
+    {
+      "run_id": "059",
+      "errors": []
+    },
+    {
+      "run_id": "060",
+      "errors": []
+    },
+    {
+      "run_id": "062",
+      "errors": []
+    },
+    {
+      "run_id": "065",
+      "errors": [
+        {
+          "family": "execution_failure",
+          "evidence": "No figure.png artifact was produced by the run."
+        }
+      ]
+    },
+    {
+      "run_id": "068",
+      "errors": []
+    },
+    {
+      "run_id": "069",
+      "errors": []
+    },
+    {
+      "run_id": "070",
+      "errors": []
+    },
+    {
+      "run_id": "074",
+      "errors": []
+    },
+    {
+      "run_id": "075",
+      "errors": []
+    },
+    {
+      "run_id": "077",
+      "errors": []
+    },
+    {
+      "run_id": "079",
+      "errors": []
+    },
+    {
+      "run_id": "080",
+      "errors": []
+    },
+    {
+      "run_id": "081",
+      "errors": []
+    },
+    {
+      "run_id": "082",
+      "errors": []
+    },
+    {
+      "run_id": "083",
+      "errors": []
+    },
+    {
+      "run_id": "086",
+      "errors": []
+    },
+    {
+      "run_id": "087",
+      "errors": [
+        {
+          "family": "wrong_data",
+          "evidence": "Instructions require a cumulative / running total calculation, which is missing from the script."
+        }
+      ]
+    },
+    {
+      "run_id": "089",
+      "errors": [
+        {
+          "family": "execution_failure",
+          "evidence": "figure.png was not created in the workspace root; the agent saved to 'plot.png' instead of 'figure.png'."
+        }
+      ]
+    },
+    {
+      "run_id": "090",
+      "errors": [
+        {
+          "family": "wrong_chart",
+          "evidence": "Task requires both x-axis and y-axis labels, but at least one axis label is missing."
+        }
+      ]
+    },
+    {
+      "run_id": "091",
+      "errors": []
+    },
+    {
+      "run_id": "096",
+      "errors": [
+        {
+          "family": "execution_failure",
+          "evidence": "figure.png was not created in the workspace root; the agent saved to 'create figure.png' instead of 'figure.png'."
+        }
+      ]
+    },
+    {
+      "run_id": "097",
+      "errors": []
+    },
+    {
+      "run_id": "098",
+      "errors": []
+    },
+    {
+      "run_id": "099",
+      "errors": []
+    },
+    {
+      "run_id": "103",
+      "errors": [
+        {
+          "family": "execution_failure",
+          "evidence": "No figure.png artifact was produced by the run."
+        }
+      ]
+    },
+    {
+      "run_id": "104",
+      "errors": []
+    },
+    {
+      "run_id": "105",
+      "errors": []
+    },
+    {
+      "run_id": "106",
+      "errors": []
+    },
+    {
+      "run_id": "108",
+      "errors": []
+    },
+    {
+      "run_id": "111",
+      "errors": []
+    },
+    {
+      "run_id": "112",
+      "errors": []
+    },
+    {
+      "run_id": "115",
+      "errors": []
+    },
+    {
+      "run_id": "117",
+      "errors": []
+    },
+    {
+      "run_id": "124",
+      "errors": []
+    },
+    {
+      "run_id": "125",
+      "errors": []
+    },
+    {
+      "run_id": "126",
+      "errors": []
+    },
+    {
+      "run_id": "128",
+      "errors": []
+    },
+    {
+      "run_id": "129",
+      "errors": []
+    },
+    {
+      "run_id": "130",
+      "errors": []
+    },
+    {
+      "run_id": "131",
+      "errors": []
+    },
+    {
+      "run_id": "135",
+      "errors": []
+    },
+    {
+      "run_id": "136",
+      "errors": []
+    },
+    {
+      "run_id": "141",
+      "errors": []
+    },
+    {
+      "run_id": "142",
+      "errors": []
+    },
+    {
+      "run_id": "143",
+      "errors": []
+    },
+    {
+      "run_id": "145",
+      "errors": [
+        {
+          "family": "execution_failure",
+          "evidence": "No figure.png artifact was produced by the run."
+        }
+      ]
+    },
+    {
+      "run_id": "146",
+      "errors": []
+    },
+    {
+      "run_id": "150",
+      "errors": []
+    },
+    {
+      "run_id": "153",
+      "errors": []
+    },
+    {
+      "run_id": "155",
+      "errors": []
+    },
+    {
+      "run_id": "156",
+      "errors": []
+    },
+    {
+      "run_id": "161",
+      "errors": []
+    },
+    {
+      "run_id": "163",
+      "errors": []
+    },
+    {
+      "run_id": "164",
+      "errors": []
+    },
+    {
+      "run_id": "165",
+      "errors": []
+    },
+    {
+      "run_id": "166",
+      "errors": []
+    },
+    {
+      "run_id": "167",
+      "errors": []
+    },
+    {
+      "run_id": "168",
+      "errors": [
+        {
+          "family": "execution_failure",
+          "evidence": "No figure.png artifact was produced by the run."
+        }
+      ]
+    },
+    {
+      "run_id": "169",
+      "errors": [
+        {
+          "family": "wrong_chart",
+          "evidence": "Task requires a chart title, but none was set in the plotting code."
+        }
+      ]
+    },
+    {
+      "run_id": "170",
+      "errors": []
+    },
+    {
+      "run_id": "171",
+      "errors": [
+        {
+          "family": "execution_failure",
+          "evidence": "figure.png was not created in the workspace root; the agent saved to 'create figure.png' instead of 'figure.png'."
+        }
+      ]
+    },
+    {
+      "run_id": "173",
+      "errors": []
+    },
+    {
+      "run_id": "175",
+      "errors": []
+    },
+    {
+      "run_id": "177",
+      "errors": []
+    },
+    {
+      "run_id": "180",
+      "errors": []
+    },
+    {
+      "run_id": "181",
+      "errors": [
+        {
+          "family": "execution_failure",
+          "evidence": "No figure.png artifact was produced by the run."
+        }
+      ]
+    },
+    {
+      "run_id": "183",
+      "errors": []
+    },
+    {
+      "run_id": "191",
+      "errors": []
+    },
+    {
+      "run_id": "195",
+      "errors": []
+    },
+    {
+      "run_id": "196",
+      "errors": []
+    },
+    {
+      "run_id": "199",
+      "errors": []
+    },
+    {
+      "run_id": "200",
+      "errors": []
+    },
+    {
+      "run_id": "202",
+      "errors": []
+    },
+    {
+      "run_id": "203",
+      "errors": []
+    },
+    {
+      "run_id": "204",
+      "errors": []
+    },
+    {
+      "run_id": "205",
+      "errors": []
+    },
+    {
+      "run_id": "206",
+      "errors": []
+    },
+    {
+      "run_id": "208",
+      "errors": [
+        {
+          "family": "execution_failure",
+          "evidence": "No figure.png artifact was produced by the run."
+        }
+      ]
+    },
+    {
+      "run_id": "209",
+      "errors": []
+    },
+    {
+      "run_id": "210",
+      "errors": []
+    },
+    {
+      "run_id": "212",
+      "errors": []
+    },
+    {
+      "run_id": "213",
+      "errors": [
+        {
+          "family": "hard_to_read",
+          "evidence": "Multi-panel subplot layout was rendered without `tight_layout()`, `constrained_layout`, or `subplots_adjust`, causing subplot titles and axis labels to collide."
+        }
+      ]
+    },
+    {
+      "run_id": "214",
+      "errors": []
+    },
+    {
+      "run_id": "216",
+      "errors": []
+    }
+  ]
+}

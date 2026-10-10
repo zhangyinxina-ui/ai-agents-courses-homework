@@ -1,0 +1,1 @@
+{"type": "message_end", "message": {"role": "assistant", "stopReason": "end_turn", "content": [{"type": "text", "text": "\"the door opened, and Mary Leavenworth stood before us!\""}], "usage": {"input": 98928, "output": 137, "cacheRead": 0, "cacheWrite": 0, "cost": {"total": 0.024896}}}}

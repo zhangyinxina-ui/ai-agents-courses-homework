@@ -1,0 +1,11 @@
+{
+  "task_id": "task_02",
+  "task_class": "conditional_csv_aggregation",
+  "instructions": "The file `sensor_readings.csv` in your working directory holds telemetry logs from four weather stations (`East`, `North`, `South`, `West`) with columns `reading_id`, `station`, `calibration` (`valid`, `drift`, `fault`), `raw_temp_c`, and `offset_c`.\n\nRead `sensor_readings.csv` and, using matplotlib, draw a vertical bar chart of the mean calibration-corrected temperature per station:\n1. Keep only rows where `calibration` is `valid`; exclude `drift` and `fault` rows.\n2. Derive each valid reading's corrected temperature in Celsius as `raw_temp_c + offset_c`.\n3. Compute the arithmetic mean of that corrected temperature within each station.\n4. Plot a single vertical bar chart on one set of axes with the four stations along the x axis in alphabetical order (`East`, `North`, `South`, `West`) and mean corrected temperature (C) on the y axis starting at 0. Give the chart a title and label both axes.",
+  "inputs": [
+    {
+      "name": "sensor_readings.csv",
+      "path": "sensor_readings.csv"
+    }
+  ]
+}

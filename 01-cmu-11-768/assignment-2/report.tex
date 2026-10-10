@@ -1,0 +1,59 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{amsmath}
+
+\title{CMU 11-768 Homework 2 Report:\\Validating and Packaging Agent Visualization Tasks}
+\author{CMU 11-768 Student}
+\date{October 2026}
+
+\begin{document}
+\maketitle
+
+\section{Part 1: Hybrid Validator Design (\texttt{validator/solution.py})}
+
+\subsection{Failure Modes of the Provided Baseline}
+The reference baseline in \texttt{validator/baseline.py} issues four separate VLM calls per run (one per \texttt{ErrorFamily}: \texttt{execution\_failure}, \texttt{wrong\_data}, \texttt{wrong\_chart}, and \texttt{hard\_to\_read}) with raw stringified trajectories. On the 30 seed runs (\texttt{artifacts/001}--\texttt{030}), it exhibits three systematic weaknesses: (1) unnecessary VLM invocations when \texttt{figure.png} is missing or corrupt (e.g., Run \texttt{001} saving to \texttt{plots/box\_plot.png}), (2) conflation of \texttt{wrong\_data} with \texttt{wrong\_chart} because pixel inspection alone cannot reliably distinguish an unfiltered aggregation from a chart-encoding error, and (3) dilution of the final plotting script by lengthy intermediate bash outputs.
+
+\subsection{Two-Stage Hybrid Architecture}
+Our validator in \texttt{validator/solution.py} combines deterministic artifact/code analysis with rubric-guided VLM inspection:
+\begin{enumerate}
+    \item \textbf{Execution Verification (\texttt{judge\_execution})}: Deterministically verifies that \texttt{run.figure} exists, exceeds 500 bytes, passes PIL \texttt{img.verify()}, has format \texttt{PNG}, dimensions $\ge 64\times 64$, $>2$ distinct RGB colors, and $\le 99.8\%$ uniform background pixels. When \texttt{figure.png} is missing, it parses \texttt{savefig(...)} calls in \texttt{run.messages} to cite the exact misdirected output path.
+    \item \textbf{Data \& Chart Verification (\texttt{judge\_data\_and\_chart})}: Extracts the chronological sequence of bash commands and return codes, isolating the final plotting script. It checks for: (a) input file bypass/hardcoding (\texttt{WRONG\_DATA}), (b) missing backtick-quoted filter tokens required by the prompt (\texttt{WRONG\_DATA}), (c) unweighted \texttt{.mean()} when weighted ratios or medians are requested (\texttt{WRONG\_DATA}), and (d) chart family, orientation (\texttt{barh} vs.\ \texttt{bar}), log scale, title, axis label, errorbar, and reference-line compliance (\texttt{WRONG\_CHART}). When a live VLM endpoint is configured, it augments these checks with a rubric-constrained VLM pass featuring token compaction and $0.7\times$ LANCZOS image downscaling.
+    \item \textbf{Readability Verification (\texttt{judge\_readability})}: Computes 2-pixel border ink density relative to the corner background median to detect clipped titles/labels, checks resolution ($\ge 320\times 240$) and aspect ratio ($\le 4.5:1$), and detects multi-panel \texttt{subplots} layouts missing \texttt{tight\_layout()}.
+\end{enumerate}
+
+\section{Part 2: Adversarial Task Authoring and Multi-Agent Analysis}
+
+We authored five tasks (\texttt{tasks/task\_01}--\texttt{task\_05}) across two task classes: \texttt{conditional\_csv\_aggregation} (\texttt{task\_01}, \texttt{task\_02}, \texttt{task\_03}) and \texttt{multi\_series\_derived\_metric} (\texttt{task\_04}, \texttt{task\_05}).
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lllp{6.2cm}}
+\toprule
+\textbf{Task} & \textbf{Task Class} & \textbf{Input CSV} & \textbf{Adversarial Trap \& Ground Truth} \\
+\midrule
+\texttt{task\_01} & \texttt{conditional\_csv\_aggregation} & \texttt{cluster\_jobs.csv} & Filter \texttt{completed}; sum \texttt{gpu\_count * runtime\_hours}; alphabetical order (\texttt{delta} before \texttt{gamma}): $[24, 34, 22, 30]$. \\
+\texttt{task\_02} & \texttt{conditional\_csv\_aggregation} & \texttt{sensor\_readings.csv} & Filter \texttt{valid}; signed offset \texttt{raw\_temp\_c + offset\_c}; mean per station: $[19, 14, 23, 17]$. \\
+\texttt{task\_03} & \texttt{conditional\_csv\_aggregation} & \texttt{api\_batches.csv} & Filter \texttt{prod}; weighted rate $(\sum \text{errors}/\sum \text{requests})\times 1000$ vs.\ unweighted batch mean trap: $[20, 15, 50, 35]$. \\
+\texttt{task\_04} & \texttt{multi\_series\_derived\_metric} & \texttt{cache\_tiers.csv} & Filter \texttt{verified}; net capacity \texttt{gross\_gb - overhead\_gb}; sum per region: $[175, 310, 480, 290]$. \\
+\texttt{task\_05} & \texttt{multi\_series\_derived\_metric} & \texttt{solar\_inverters.csv} & Filter \texttt{locked}; AC energy \texttt{dc\_kwh * (efficiency\_pct/100)}; sum per array: $[300, 404, 267, 406]$. \\
+\bottomrule
+\end{tabular}
+\caption{Summary of the five authored tasks and their ground-truth bar heights.}
+\end{table}
+
+Across the 15 runs (\texttt{glm}, \texttt{ministral}, \texttt{qwen}), \texttt{GLM-4.7-Flash} solved 4/5 tasks (failing \texttt{task\_03}'s weighted ratio), \texttt{Ministral-3-14B} solved 2/5 tasks (missing filters on \texttt{task\_01}/\texttt{task\_05} and axis labels on \texttt{task\_04}), and \texttt{Qwen2.5-Coder-3B} failed all 5 tasks across all four error families. Our validator achieves 1.00 Precision, 1.00 Recall, and 1.00 Macro-F1 across all four families on the 15 labeled runs.
+
+\section{Part 3: Harbor Packaging and Mutant Verifier Gap Analysis}
+
+Each task is packaged in \texttt{harbor/tasks/task\_01}--\texttt{task\_05} with \texttt{network\_mode = "no-network"} and requires three outputs in \texttt{/app}: \texttt{plot.py}, \texttt{figure.png}, and \texttt{plotted\_values.json}. Our verifier (\texttt{tests/test\_state.py}) enforces five checks: file existence, non-blank PNG validity, input CSV SHA-256 integrity, \texttt{plotted\_values.json} numerical accuracy (\texttt{pytest.approx}), and an input-perturbation re-execution probe (\texttt{test\_script\_reruns\_and\_tracks\_perturbed\_input}) that appends a synthetic CSV row and verifies that re-running \texttt{plot.py} updates the output accordingly.
+
+\begin{itemize}
+    \item \textbf{Rejected Mutant (\texttt{mutants/unfiltered\_rows/solve.sh}, Reward = 0.0)}: Omits the status/tier/calibration filter. Caught deterministically by \texttt{test\_sidecar\_parses\_and\_matches\_expected\_values}.
+    \item \textbf{Accepted Mutant (\texttt{mutants/unverified\_styling/solve.sh}, Reward = 1.0)}: Computes the exact filtered CSV numbers and passes the perturbation re-execution probe, but renders bars in near-white (\texttt{\#FEFEFE}) with \texttt{1pt} font size. Because the PNG has $>4$ unique RGB colors and the JSON sidecar is exact, \texttt{test\_state.py} awards 1.0, illustrating the gap between programmatic data verification and perceptual readability.
+\end{itemize}
+
+\end{document}

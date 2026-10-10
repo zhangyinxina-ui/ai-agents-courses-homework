@@ -1,0 +1,37 @@
+{
+  "claims": [
+    {
+      "statement": "In the primary clinical discovery cohort of 8 unrelated individuals with de novo putative loss-of-function variants in TAF4 (Janssen et al., 2022), global developmental delay / intellectual disability (HP:0001263 / HP:0001249) and disproportionate expressive language delay (HP:0000750) both occurred in 8/8 (100%) patients.",
+      "report_line": 18,
+      "hypothesis_id": "h1",
+      "evidence_ids": [
+        "e1",
+        "e2",
+        "e8",
+        "e9"
+      ],
+      "caveat": "Ascertained from a small discovery cohort of n=8 individuals carrying de novo pLoF variants; missense variants in sporadic developmental language disorder cohorts (Kennis et al., 2026) can present with isolated expressive speech impairment and preserved non-verbal IQ >= 70."
+    },
+    {
+      "statement": "In the Janssen et al. (2022) cohort of 8 individuals with de novo pLoF variants in TAF4, behavioral abnormalities (HP:0000708) and category-level facial dysmorphisms (HP:0001999) were each documented in 7/8 (87.5%) patients.",
+      "report_line": 20,
+      "hypothesis_id": "h7",
+      "evidence_ids": [
+        "e16",
+        "e28"
+      ],
+      "caveat": "Although category-level facial dysmorphism is penetrant (7/8, 87.5%), individual morphological features are highly variable and none is pathognomonic across all patients."
+    },
+    {
+      "statement": "In the primary clinical cohort of Janssen et al. (2022), discrete facial anomalies such as arched eyebrows (HP:0002553), epicanthus (HP:0000286), and thin upper lip vermilion (HP:0000219) each occurred in fewer than 6/8 (<75%) patients.",
+      "report_line": 22,
+      "hypothesis_id": "h13",
+      "evidence_ids": [
+        "e37",
+        "e50",
+        "e54"
+      ],
+      "caveat": "No single discrete facial feature exceeds 75% penetrance (<6/8), preventing definitive phenotypic diagnosis based on physical exam alone."
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+{"type": "message_end", "message": {"role": "assistant", "stopReason": "end_turn", "content": [{"type": "text", "text": "London"}], "usage": {"input": 766569, "output": 283, "cacheRead": 0, "cacheWrite": 0, "cost": {"total": 0.3837936}}}}

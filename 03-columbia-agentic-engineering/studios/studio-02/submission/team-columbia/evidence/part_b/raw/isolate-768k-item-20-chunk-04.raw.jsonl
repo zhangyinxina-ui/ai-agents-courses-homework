@@ -1,0 +1,1 @@
+{"type": "message_end", "message": {"role": "assistant", "stopReason": "end_turn", "content": [{"type": "text", "text": "He had left his gardening to get his morning dram just at the time when the apparition had taken place."}], "usage": {"input": 96234, "output": 350, "cacheRead": 0, "cacheWrite": 0, "cost": {"total": 0.024478}}}}

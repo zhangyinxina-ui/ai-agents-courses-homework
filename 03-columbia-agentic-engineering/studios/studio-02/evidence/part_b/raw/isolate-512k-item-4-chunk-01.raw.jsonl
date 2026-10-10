@@ -1,0 +1,1 @@
+{"type": "message_end", "message": {"role": "assistant", "stopReason": "end_turn", "content": [{"type": "text", "text": "John Lane came to the stable once a week;"}], "usage": {"input": 81658, "output": 160, "cacheRead": 0, "cacheWrite": 0, "cost": {"total": 0.020606}}}}

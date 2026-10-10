@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "course": "Stanford CS224V: Agentic AI (Fall 2026)",
+    "assignment": "Homework 2 Part 1: Building Simple Agents and Agent Operating System (AOS) with SLIDERS",
+    "omim_id": 620450,
+    "my_disease": "OMIM_620450",
+    "disease_name": "Intellectual developmental disorder, autosomal dominant 73 (OMIM 620450)",
+    "ground_truth_patient": "P10"
+  },
+  "todo_0": {
+    "OMIM_ID": 620450,
+    "MY_DISEASE": "OMIM_620450",
+    "DISEASE": "Intellectual developmental disorder, autosomal dominant 73 (OMIM 620450)"
+  },
+  "todo_1": {
+    "code": "response = llm.invoke(prompt)",
+    "output": "Intellectual Developmental Disorder, Autosomal Dominant 73 (OMIM #620450)"
+  },
+  "todo_1.2": "To build a deep literature research agent like STORM (Shao et al., NAACL 2024) for clinical and scientific synthesis, I would equip the agent with four complementary tool families beyond basic local file reading:\n1. Multi-Source Scientific & Biomedical Search Tools: `search_pubmed_pmc(query, filters)`, `search_semantic_scholar(query, year_range)`, `query_omim_api(mim_number)`, and `lookup_hpo_ontology(term_or_id)`. In Homework 1, generic web search returned only high-SEO aggregator landing pages (MedlinePlus, UniProt, OpenTargets); specialized biomedical search tools allow the agent to retrieve primary peer-reviewed cohort studies and resolve synonymous phenotype terms to canonical HPO IDs.\n2. Full-Text & Structured Table Extraction Tools: `read_paper_section(pmcid_or_pdf_url, section_header)` and `extract_structured_table(doc_id, table_number)`. In Homework 1, GRILL failed on OMIM:620450 specifically because its web snippet of Janssen et al. (2022) truncated immediately after the caption of Table 1, losing Proband 7's individual clinical row and exact hypotonia/microcephaly numerators. Dedicated PDF/HTML table parsers prevent snippet-truncation blind spots.\n3. Perspective-Guided Question & Outline Tools (STORM Architecture): `generate_expert_personas(topic)` and `conduct_perspective_interview(persona, sub_questions, retrieved_passages)`. Following STORM's pre-writing stage, the agent spawns distinct expert personas—such as a clinical dysmorphologist, a neurogeneticist, a developmental speech pathologist, and a methodological skeptic—to ask orthogonal questions and uncover missing differential diagnoses or sample-size limitations.\n4. Belief-Ledger & Citation Verification Tools: `propose_hypothesis(claim, direction_id)`, `link_evidence(hypothesis_id, quote, source_url, line_span, polarity)`, and `verify_claim_grounding(statement, evidence_ids)`. These tools enforce strict provenance so every synthesized claim is backed by verbatim quotes and conflicted hypotheses (e.g., h9 on <5% structural malformations in n=8 patients) are explicitly flagged with statistical caveats rather than promoted as hard exclusion rules.",
+  "todo_2": {
+    "AGENT_TASK": "Locate the saved GRILL report (answer.md) for Intellectual developmental disorder, autosomal dominant 73 (OMIM 620450) inside the assignment-1 repository without assuming its folder path, and extract three distinct, high-value clinical claims useful for matching patient phenotypes to this disorder. Before accepting any claim, read the numbered report lines with read_file and inspect the underlying hypothesis and its linked evidence records in the ledger using get_hypothesis (starting with h_id=0 to map F-labels to h-IDs). Only select claims whose supporting evidence directly corroborates the statement, and never derive missing counts or transfer a verdict onto a negated or conflicted hypothesis. Preserve the exact study cohort context (such as Janssen et al., 2022, Kennis et al., 2026, or Bertoli-Avella et al., 2021), the exact reported numerators/denominators (n/N) and percentages, and any statistical or clinical uncertainty. Present each of the three final draft claims with five explicit fields: statement, report_line, hypothesis_id, evidence_ids, and caveat."
+  },
+  "todo_3": {
+    "code": "agent = create_agent(model=llm, tools=TOOLS, system_prompt=SYSTEM_PROMPT, middleware=limits)"
+  },
+  "todo_4": {
+    "code": "result = agent.invoke({\"messages\": [{\"role\": \"user\", \"content\": task}]})"
+  },
+  "todo_5": {
+    "code": "messages = result[\"messages\"]"
+  },
+  "todo_5_1": "The ReAct agent made 9 tool calls across 9 model-tool turns before returning its final draft claims:\n1. `get_cwd()` -> Discovered the sandbox root directory (`.../cs224vf26-assignment1-public`).\n2. `list_files(path_to_folder='.')` -> Listed top-level entries (`assignments/`, `data/`, `vendor/`).\n3. `list_files(path_to_folder='assignments')` -> Confirmed `OMIM_620450/` exists among the assigned disease folders.\n4. `list_files(path_to_folder='assignments/OMIM_620450/grill_run')` -> Located `answer.md` and `ledger.json`.\n5. `read_file(path_to_file='assignments/OMIM_620450/grill_run/answer.md')` -> Read the 147-line numbered GRILL report and unlocked `REPORT_READ`.\n6. `get_hypothesis(h_id=0)` -> Retrieved the hypothesis index mapping report labels (`F1`–`F18`) to ledger hypothesis IDs (`h1`–`h18`).\n7. `get_hypothesis(h_id=1)` -> Inspected hypothesis `h1` (`F2`, confidence 0.96, supported by `e1, e2, e8, e9`) on 8/8 (100%) penetrance of intellectual disability and disproportionate expressive language delay (`HP:0000750`) in Janssen et al. (2022).\n8. `get_hypothesis(h_id=13)` -> Inspected hypothesis `h13` (`F4`, confidence 0.88, supported by `e37, e50, e54`) on high forehead (`HP:0000348`, 4/6 = 67%) and variable discrete facial features (`<6/8`) in Janssen et al. (2022).\n9. `get_hypothesis(h_id=7)` -> Inspected hypothesis `h7` (`F6`, confidence 0.90, supported by `e16, e28`) on the core syndromic penetrance in Janssen et al. (2022): intellectual disability (8/8, 100%), behavioral abnormalities (7/8, 87.5%), and category-level facial dysmorphisms (7/8, 87.5%).\n\nComparison with human search strategy: Yes, this sequence closely mirrors how a careful human researcher would operate given the same tool constraints. Because the exact path is unknown and `get_hypothesis` is gated on reading `answer.md` first, hierarchical directory exploration (`get_cwd` -> `list_files` -> `read_file`) followed by index lookup (`get_hypothesis(0)`) and targeted verification of the highest-confidence pooled hypotheses (`h1`, `h13`, `h7`) is the minimum-step, epistemically sound path to verify line numbers, h-IDs, and e-IDs.",
+  "todo_6a_6d": {
+    "Claim": {
+      "statement": "str",
+      "report_line": "int",
+      "hypothesis_id": "str",
+      "evidence_ids": "list[str] (description='One or more e-IDs from the inspected hypothesis that directly support or qualify the claim')",
+      "caveat": "str"
+    },
+    "ClaimBatch": {
+      "claims": "list[Claim] (description='Three narrow, evidence-backed clinical claims extracted from the GRILL report and verified against the ledger')"
+    }
+  },
+  "todo_6e": {
+    "code": "structured_model = llm.with_structured_output(ClaimBatch, method=\"function_calling\")",
+    "extracted_claims": [
+      {
+        "claim_id": "C001",
+        "statement": "In the primary clinical discovery cohort of 8 unrelated individuals with de novo putative loss-of-function variants in TAF4 (Janssen et al., 2022), global developmental delay / intellectual disability (HP:0001263 / HP:0001249) and disproportionate expressive language delay (HP:0000750) both occurred in 8/8 (100%) patients.",
+        "report_line": 18,
+        "hypothesis_id": "h1",
+        "evidence_ids": [
+          "e1",
+          "e2",
+          "e8",
+          "e9"
+        ],
+        "caveat": "Ascertained from a small discovery cohort of n=8 individuals carrying de novo pLoF variants; missense variants in sporadic developmental language disorder cohorts (Kennis et al., 2026) can present with isolated expressive speech impairment and preserved non-verbal IQ >= 70."
+      },
+      {
+        "claim_id": "C002",
+        "statement": "In the Janssen et al. (2022) cohort of 8 individuals with de novo pLoF variants in TAF4, behavioral abnormalities (HP:0000708) and category-level facial dysmorphisms (HP:0001999) were each documented in 7/8 (87.5%) patients.",
+        "report_line": 20,
+        "hypothesis_id": "h7",
+        "evidence_ids": [
+          "e16",
+          "e28"
+        ],
+        "caveat": "Although category-level facial dysmorphism is penetrant (7/8, 87.5%), individual morphological features are highly variable and none is pathognomonic across all patients."
+      },
+      {
+        "claim_id": "C003",
+        "statement": "In the primary clinical cohort of Janssen et al. (2022), discrete facial anomalies such as arched eyebrows (HP:0002553), epicanthus (HP:0000286), and thin upper lip vermilion (HP:0000219) each occurred in fewer than 6/8 (<75%) patients.",
+        "report_line": 22,
+        "hypothesis_id": "h13",
+        "evidence_ids": [
+          "e37",
+          "e50",
+          "e54"
+        ],
+        "caveat": "No single discrete facial feature exceeds 75% penetrance (<6/8), preventing definitive phenotypic diagnosis based on physical exam alone."
+      }
+    ]
+  },
+  "todo_7": "We added 3 files to the AOS workspace (`workspaces/OMIM_620450`): `inputs/answer.md` (19,062 bytes), `inputs/ledger.json` (94,167 bytes), and `inputs/results/claims.json` (1,896 bytes). The model-generated one-sentence catalog summaries in `workspace.db` accurately describe each file's contents and role: `inputs/answer.md` is summarized as a clinical synthesis report on TAF4-related autosomal dominant intellectual developmental disorder 73 (OMIM #620450) covering phenotype frequencies, differential diagnosis, and negative criteria; `inputs/ledger.json` is summarized as a structured GRILL belief ledger containing 53 research directions, 18 hypotheses, and 60 evidence records; and `inputs/results/claims.json` is summarized as a batch of three validated clinical claims linking `answer.md` line numbers to hypothesis and evidence IDs.",
+  "todo_8": "When invoked via `aos.step('sliders', question, inputs=['inputs/answer.md'], output_dir='generated/findings', ...)`, SLIDERS decomposed the `OMIM_620450` GRILL report into structured phenotype-matching tables under `generated/findings/tables/` (totalling 18 extracted phenotype/criterion rows across core positive phenotypes, ranked diagnostic discriminators, genotype-phenotype strata, and negative exclusion criteria) accompanied by `generated/findings/evidence.csv` (where 100% of cells with line locators had `quote_verified == True` against `answer.md`). Checking three sampled cells in `evidence.csv` against `report_lines[start_line-1:end_line]` confirms that SLIDERS's quotes are verbatim faithful to the report text (e.g., lines 17–22 for the 8/8 expressive speech delay and 4/6 high forehead counts, lines 50–61 for the ranked discriminators, and lines 65–73 for the negative diagnostic criteria).",
+  "todo_9.1": "Yes, the AOS planner selected `claim_extractor` on its very first step (`step 1`, `status='ok'`). In `task.steps[0]['reason']` and the verbatim planner decision in `aos.trace(task.id)`, the planner explained that the user's goal requested extracting three evidence-backed clinical claims from `inputs/answer.md` and `inputs/ledger.json` into `generated/claims/claims.csv`, which matched `claim_extractor`'s registered worker contract (`inputs = answer.md and ledger.json; writes output_dir/claims.json, claims.csv, and tool_trace.json`) much more specifically than the general-purpose `coding_agent` or `sliders` workers. The task completed in 1 step (2 AOS calls for planning + output file cataloging, plus the agent's LangChain calls), and `aos.describe('generated/claims/claims.csv')` recorded `source: 'claim_extractor'` with derivation inputs `['inputs/answer.md', 'inputs/ledger.json']`.",
+  "todo_9.2": "Yes, the tool call usage inside `ClaimExtractor` differed in its initial navigation phase compared to the standalone Part 1 ReAct agent. In Part 1, `SANDBOX` pointed to the root of `cs224vf26-assignment1-public/`, so the agent had to spend 4 navigation tool calls (`get_cwd` -> `list_files('.')` -> `list_files('assignments')` -> `list_files('assignments/OMIM_620450/grill_run')`) to discover `OMIM_620450` among all diseases before reading `answer.md`. Inside `ClaimExtractor.run`, `SANDBOX` was re-pointed directly to `report.parent` (`workspaces/OMIM_620450/inputs`), so `list_files('.')` immediately listed `answer.md` and `ledger.json` in the starting folder, saving 2 directory-traversal tool calls while keeping the downstream verification sequence (`read_file('answer.md')` -> `get_hypothesis(0)` -> `get_hypothesis(1)` -> `get_hypothesis(7)` -> `get_hypothesis(13)`) identical.",
+  "todo_10": "By running our comparison agent across `precomputed/outcomes.csv`, `precomputed/audits.csv`, `cohort.json` (for `OMIM_620450`), the SLIDERS tables (`generated/findings/tables/`), and our extracted claims (`generated/claims/claims.csv`), we identified why the gold patient `P10` (`PMID_35904126_Proband_7`, Janssen et al., 2022) was misranked at #4/#5 behind decoy `P07` (#1, prob=0.85) and exactly what criteria were met vs. missed:\n1. Criteria Met by Gold Patient `P10`: `P10` satisfies every positive core and craniofacial criterion in both `claims.csv` and the SLIDERS table: Intellectual disability (`HP:0002342`, moderate -> matches 8/8 in C001), Expressive speech delay (`HP:0000750` -> matches 8/8 in C001 and Rank 1 discriminator), Highly arched eyebrow (`HP:0002553`) and Thin upper lip vermilion (`HP:0000219` -> matches <6/8 discrete facial triad in C003), plus absence of seizures (`HP:0001250` in `excluded` -> matches Rank 2 discriminator).\n2. What Was Missing from the SLIDERS Table & GRILL Report (`answer.md`): Because GRILL's snippet of Janssen et al. (2022) truncated right after the Table 1 header (as documented in `ledger.json` evidence `e39` and `e57`, leaving corrective directions `d48` and `d50` unfunded), three critical features of `P10` were missing from the SLIDERS phenotype table:\n   (a) `HP:0100962` (Excessive shyness) — present in `P10` and documented in Janssen et al. (2022) / RDDC, but omitted when `answer.md` narrowed behavioral traits to 'hyperactivity, impulsivity, autism traits', causing the ranker to falsely claim `P10` lacked TAF4 behavioral disturbances;\n   (b) `HP:0001252` (Muscular hypotonia) and `HP:0031936` (Delayed ability to walk) — present in `P10`, but omitted from Table 1 of `answer.md` after hypothesis `h14` was binned as conflicted due to snippet truncation;\n   (c) Minor/moderate oral, dental, and digital findings in Proband 7 (`P10`): Cleft soft palate (`HP:0000185`), Oligodontia (`HP:0000677`), Camptodactyly (`HP:0100490`), and 2-3 toe syndactyly (`HP:0004691`). Because SLIDERS faithfully extracted `answer.md`'s sweeping 'Negative Diagnostic Criteria' (derived from `h5`/`h9`), the downstream matcher falsely penalized `P10`'s minor craniofacial/limb anomalies as disqualifying structural malformations."
+}

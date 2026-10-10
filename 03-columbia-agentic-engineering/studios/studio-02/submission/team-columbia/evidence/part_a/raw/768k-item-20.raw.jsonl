@@ -1,0 +1,1 @@
+{"type": "message_end", "message": {"role": "assistant", "stopReason": "end_turn", "content": [{"type": "text", "text": "Fairy Knowe"}], "usage": {"input": 767605, "output": 458, "cacheRead": 0, "cacheWrite": 0, "cost": {"total": 0.3846266}}}}

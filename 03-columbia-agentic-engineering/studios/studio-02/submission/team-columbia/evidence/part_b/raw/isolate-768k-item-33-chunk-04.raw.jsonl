@@ -1,0 +1,1 @@
+{"type": "message_end", "message": {"role": "assistant", "stopReason": "end_turn", "content": [{"type": "text", "text": "\"My second grandchild was born, and christened the next day by our vicar at Sayes Court, by the name of John.\""}], "usage": {"input": 96189, "output": 173, "cacheRead": 0, "cacheWrite": 0, "cost": {"total": 0.024255}}}}

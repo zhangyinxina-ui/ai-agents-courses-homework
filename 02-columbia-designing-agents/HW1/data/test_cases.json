@@ -1,0 +1,418 @@
+[
+  {
+    "id": "t01",
+    "tests": "normalize:tags",
+    "text": "<p>The pasta was excellent and the service was attentive from start to finish.</p><br/>",
+    "expected_text": "The pasta was excellent and the service was attentive from start to finish.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t02",
+    "tests": "normalize:tags",
+    "text": "The bread<br/>was warm and the butter was soft, which is all I really ask for.",
+    "expected_text": "The bread was warm and the butter was soft, which is all I really ask for.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t03",
+    "tests": "normalize:entities",
+    "text": "The soup &amp; salad combo was fresh, and I&#39;d happily order it again tomorrow.",
+    "expected_text": "The soup & salad combo was fresh, and I'd happily order it again tomorrow.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t04",
+    "tests": "normalize:entities",
+    "text": "They said &quot;no substitutions&quot; but then made three of them for our table anyway.",
+    "expected_text": "They said \"no substitutions\" but then made three of them for our table anyway.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t05",
+    "tests": "normalize:whitespace",
+    "text": "   The\t\tdumplings   were   folded\n\nby hand and you could genuinely taste the difference.  ",
+    "expected_text": "The dumplings were folded by hand and you could genuinely taste the difference.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t06",
+    "tests": "normalize:whitespace",
+    "text": "Service was slow.\n\n\nThe food was worth the wait though, so I would still recommend it.",
+    "expected_text": "Service was slow. The food was worth the wait though, so I would still recommend it.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t07",
+    "tests": "normalize:unicode",
+    "text": "The crème brûlée was the best thing on the menu and the café au lait was strong.",
+    "expected_text": "The crème brûlée was the best thing on the menu and the café au lait was strong.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t08",
+    "tests": "normalize:unicode",
+    "text": "We ordered the jalapeño poppers twice because the first plate disappeared immediately.",
+    "expected_text": "We ordered the jalapeño poppers twice because the first plate disappeared immediately.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t09",
+    "tests": "scrub:email",
+    "text": "Great little spot downtown. Email me at sam@example.com if you want the full menu breakdown.",
+    "expected_text": "Great little spot downtown. Email me at [EMAIL] if you want the full menu breakdown.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t10",
+    "tests": "scrub:email",
+    "text": "The chef was lovely and gave me her card, first.last@sub.domain.co.uk, for catering questions.",
+    "expected_text": "The chef was lovely and gave me her card, [EMAIL], for catering questions.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t11",
+    "tests": "scrub:email",
+    "text": "Reach the manager at user+bookings@gmail.com because the phone line is never actually answered.",
+    "expected_text": "Reach the manager at [EMAIL] because the phone line is never actually answered.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t12",
+    "tests": "scrub:email",
+    "text": "Two contacts on the receipt, a@b.com and owner@place.net, neither of which replied to me.",
+    "expected_text": "Two contacts on the receipt, [EMAIL] and [EMAIL], neither of which replied to me.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t13",
+    "tests": "scrub:email",
+    "text": "I emailed sam@example.com. Nobody wrote back for three weeks, which tells you everything.",
+    "expected_text": "I emailed [EMAIL]. Nobody wrote back for three weeks, which tells you everything.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t14",
+    "tests": "scrub:email",
+    "text": "Their booking address is underscores_and-dashes@my-domain.org and it actually works, which is more than I can say for the phone line.",
+    "expected_text": "Their booking address is [EMAIL] and it actually works, which is more than I can say for the phone line.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t15",
+    "tests": "scrub:url",
+    "text": "Solid brunch place. Full writeup at https://example.com/review if you want the details.",
+    "expected_text": "Solid brunch place. Full writeup at [URL] if you want the details.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t16",
+    "tests": "scrub:url",
+    "text": "Check https://example.com/search?q=tacos&sort=new for photos of everything we ordered that night, including the dessert we could not finish.",
+    "expected_text": "Check [URL] for photos of everything we ordered that night, including the dessert we could not finish.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t17",
+    "tests": "scrub:url",
+    "text": "The menu lives at www.example.com and has not been updated since roughly 2019.",
+    "expected_text": "The menu lives at [URL] and has not been updated since roughly 2019.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t18",
+    "tests": "scrub:url",
+    "text": "Reservations go through example.com/book which is somehow slower than calling them directly.",
+    "expected_text": "Reservations go through [URL] which is somehow slower than calling them directly.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t19",
+    "tests": "scrub:url",
+    "text": "I found it via https://bit.ly/3xKq9. Worth the detour if you are already in the neighborhood.",
+    "expected_text": "I found it via [URL]. Worth the detour if you are already in the neighborhood.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t20",
+    "tests": "scrub:url",
+    "text": "Their contact page is https://example.com/contact?email=sam@example.com, which is a single link even though it looks like it contains an address.",
+    "expected_text": "Their contact page is [URL], which is a single link even though it looks like it contains an address.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t21",
+    "tests": "scrub:phone",
+    "text": "Lovely staff. Call (212) 555-0147 to book because the online system is completely broken.",
+    "expected_text": "Lovely staff. Call [PHONE] to book because the online system is completely broken.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t22",
+    "tests": "scrub:phone",
+    "text": "The number on the door is 212-555-0147 and somebody actually picks it up during lunch.",
+    "expected_text": "The number on the door is [PHONE] and somebody actually picks it up during lunch.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t23",
+    "tests": "scrub:phone",
+    "text": "I rang 2125550147 four times before anyone answered, which set the tone for the evening.",
+    "expected_text": "I rang [PHONE] four times before anyone answered, which set the tone for the evening.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t24",
+    "tests": "scrub:phone",
+    "text": "For the London branch try +44 20 7946 0958, though the accent on the line was hard to place.",
+    "expected_text": "For the London branch try [PHONE], though the accent on the line was hard to place.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t25",
+    "tests": "scrub:phone",
+    "text": "Catering runs through (415) 555-0192 x23 and they were genuinely helpful about allergies.",
+    "expected_text": "Catering runs through [PHONE] x23 and they were genuinely helpful about allergies.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t26",
+    "tests": "scrub:handle",
+    "text": "Follow @hungryinbrooklyn for better photos than mine because my lighting was terrible.",
+    "expected_text": "Follow [HANDLE] for better photos than mine because my lighting was terrible.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t27",
+    "tests": "scrub:handle",
+    "text": "Credit to @the_food_guy for the recommendation, which turned out to be completely correct.",
+    "expected_text": "Credit to [HANDLE] for the recommendation, which turned out to be completely correct.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t28",
+    "tests": "scrub:handle",
+    "text": "Both @sam and @alex told me to order the short rib, and both of them were right.",
+    "expected_text": "Both [HANDLE] and [HANDLE] told me to order the short rib, and both of them were right.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t29",
+    "tests": "near_miss:url",
+    "text": "The espresso cost 3.50 which is reasonable for this neighborhood and it was genuinely good.",
+    "expected_text": "The espresso cost 3.50 which is reasonable for this neighborhood and it was genuinely good.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t30",
+    "tests": "near_miss:url",
+    "text": "They are on version 2.0 of the menu now and the new one is a clear improvement overall.",
+    "expected_text": "They are on version 2.0 of the menu now and the new one is a clear improvement overall.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t31",
+    "tests": "near_miss:url",
+    "text": "I rated it 9.5 out of 10 and the only thing holding it back was the cramped seating.",
+    "expected_text": "I rated it 9.5 out of 10 and the only thing holding it back was the cramped seating.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t32",
+    "tests": "near_miss:url",
+    "text": "They handed me a printout called menu.pdf instead of an actual menu, which was odd.",
+    "expected_text": "They handed me a printout called menu.pdf instead of an actual menu, which was odd.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t33",
+    "tests": "near_miss:phone",
+    "text": "The year 2024 was better for this place, honestly, before the second location opened.",
+    "expected_text": "The year 2024 was better for this place, honestly, before the second location opened.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t34",
+    "tests": "near_miss:phone",
+    "text": "My order 5550147 was late by half an hour and nobody at the counter seemed concerned.",
+    "expected_text": "My order 5550147 was late by half an hour and nobody at the counter seemed concerned.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t35",
+    "tests": "near_miss:phone",
+    "text": "We waited 45 minutes for a table we had already reserved, which is its own kind of talent.",
+    "expected_text": "We waited 45 minutes for a table we had already reserved, which is its own kind of talent.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t36",
+    "tests": "near_miss:handle",
+    "text": "Meet me @ the cafe on the corner, the one with the green awning and terrible parking.",
+    "expected_text": "Meet me @ the cafe on the corner, the one with the green awning and terrible parking.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t37",
+    "tests": "near_miss:handle",
+    "text": "The board said 5@10 for the oyster deal and it was the best value in the entire city.",
+    "expected_text": "The board said 5@10 for the oyster deal and it was the best value in the entire city.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t38",
+    "tests": "near_miss:mixed",
+    "text": "Everything cost 20@$3 each which added up faster than any of us were expecting it to.",
+    "expected_text": "Everything cost 20@$3 each which added up faster than any of us were expecting it to.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t39",
+    "tests": "scrub:mixed",
+    "text": "Call (212) 555-0147 or email sam@example.com or just visit https://example.com to book a table.",
+    "expected_text": "Call [PHONE] or email [EMAIL] or just visit [URL] to book a table.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t40",
+    "tests": "scrub:mixed",
+    "text": "Site www.sam.example.com, email sam@sam.example.com, cell 212-555-0147, and none of them work.",
+    "expected_text": "Site [URL], email [EMAIL], cell [PHONE], and none of them work.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t41",
+    "tests": "scrub:mixed",
+    "text": "Thanks @chef for sending out the extra plate, and email hello@foodblog.co.uk for the recipe.",
+    "expected_text": "Thanks [HANDLE] for sending out the extra plate, and email [EMAIL] for the recipe.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t42",
+    "tests": "length",
+    "text": "Good.",
+    "expected_text": "Good.",
+    "keep": false,
+    "reason": "length"
+  },
+  {
+    "id": "t43",
+    "tests": "length",
+    "text": "Five stars",
+    "expected_text": "Five stars",
+    "keep": false,
+    "reason": "length"
+  },
+  {
+    "id": "t44",
+    "tests": "length",
+    "text": "<p>Meh.</p>",
+    "expected_text": "Meh.",
+    "keep": false,
+    "reason": "length"
+  },
+  {
+    "id": "t45",
+    "tests": "gibberish",
+    "text": "!!! *** $$$ >>> ### @@@ %%% ^^^ ~~~ ||| +++ === <<< ??? &&& ***",
+    "expected_text": "!!! *** $$$ >>> ### @@@ %%% ^^^ ~~~ ||| +++ === <<< ??? &&& ***",
+    "keep": false,
+    "reason": "gibberish"
+  },
+  {
+    "id": "t46",
+    "tests": "gibberish",
+    "text": "^^^ ~~~ ||| \\\\\\ /// $$$ ### @@@ %%% +++ === <<< >>> ??? !!! ***",
+    "expected_text": "^^^ ~~~ ||| \\\\\\ /// $$$ ### @@@ %%% +++ === >> ??? !!! ***",
+    "keep": false,
+    "reason": "gibberish"
+  },
+  {
+    "id": "t47",
+    "tests": "gibberish",
+    "text": "$$$ $$$ $$$ %%% %%% %%% ### ### ### @@@ @@@ @@@ *** *** ***",
+    "expected_text": "$$$ $$$ $$$ %%% %%% %%% ### ### ### @@@ @@@ @@@ *** *** ***",
+    "keep": false,
+    "reason": "gibberish"
+  },
+  {
+    "id": "t48",
+    "tests": "repetition:first",
+    "text": "The salmon was cooked perfectly and the wine list was surprisingly deep for a place this small.",
+    "expected_text": "The salmon was cooked perfectly and the wine list was surprisingly deep for a place this small.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t49",
+    "tests": "repetition:dup",
+    "text": "The salmon was cooked perfectly and the wine list was surprisingly deep for a place this small!",
+    "expected_text": "The salmon was cooked perfectly and the wine list was surprisingly deep for a place this small!",
+    "keep": false,
+    "reason": "repetition"
+  },
+  {
+    "id": "t50",
+    "tests": "repetition:first",
+    "text": "Booked for a birthday and they brought out a candle without being asked, which was a nice touch.",
+    "expected_text": "Booked for a birthday and they brought out a candle without being asked, which was a nice touch.",
+    "keep": true,
+    "reason": "ok"
+  },
+  {
+    "id": "t51",
+    "tests": "repetition:dup",
+    "text": "Booked for a birthday and they brought out a candle without being asked, which was a nice touch.",
+    "expected_text": "Booked for a birthday and they brought out a candle without being asked, which was a nice touch.",
+    "keep": false,
+    "reason": "repetition"
+  },
+  {
+    "id": "t52",
+    "tests": "repetition:dup",
+    "text": "Booked for a birthday and they brought out a candle without being asked. Which was a nice touch.",
+    "expected_text": "Booked for a birthday and they brought out a candle without being asked. Which was a nice touch.",
+    "keep": false,
+    "reason": "repetition"
+  }
+]

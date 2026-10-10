@@ -1,0 +1,1212 @@
+[
+  {
+    "incident_id": "INC-2026-001",
+    "title": "auth-service SEV-1 incident #1: Redis cluster connection pool exhaustion during OAuth toke",
+    "service": "auth-service",
+    "severity": "SEV-1",
+    "status": "resolved",
+    "environment": "prod-us-east",
+    "detected_at": "2026-08-01T03:15:00Z",
+    "resolved_at": "2026-08-01T04:52:00Z",
+    "mttr_minutes": 37,
+    "oncall_engineer": "eng-oncall-2",
+    "root_cause": "Redis cluster connection pool exhaustion during OAuth token refresh burst",
+    "summary": "Incident INC-2026-001 affected auth-service in prod-us-east (SEV-1). Root cause: Redis cluster connection pool exhaustion during OAuth token refresh burst. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-001-1",
+        "author": "eng-oncall-2",
+        "created_at": "2026-08-01T05:00:00Z",
+        "note": "Mitigated INC-2026-001 on auth-service and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-002",
+    "title": "payments-api SEV-2 incident #2: Database deadlock on concurrent ledger row updates under f",
+    "service": "payments-api",
+    "severity": "SEV-2",
+    "status": "resolved",
+    "environment": "prod-eu-west",
+    "detected_at": "2026-08-02T06:15:00Z",
+    "resolved_at": "2026-08-02T07:32:00Z",
+    "mttr_minutes": 77,
+    "oncall_engineer": "eng-oncall-3",
+    "root_cause": "Database deadlock on concurrent ledger row updates under flash-sale load",
+    "summary": "Incident INC-2026-002 affected payments-api in prod-eu-west (SEV-2). Root cause: Database deadlock on concurrent ledger row updates under flash-sale load. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-002-1",
+        "author": "eng-oncall-3",
+        "created_at": "2026-08-02T08:00:00Z",
+        "note": "Mitigated INC-2026-002 on payments-api and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-003",
+    "title": "search-indexer SEV-3 incident #3: Stale shard routing table after availability zone failover",
+    "service": "search-indexer",
+    "severity": "SEV-3",
+    "status": "resolved",
+    "environment": "prod-ap-south",
+    "detected_at": "2026-08-03T09:15:00Z",
+    "resolved_at": "2026-08-03T10:34:00Z",
+    "mttr_minutes": 139,
+    "oncall_engineer": "eng-oncall-4",
+    "root_cause": "Stale shard routing table after availability zone failover",
+    "summary": "Incident INC-2026-003 affected search-indexer in prod-ap-south (SEV-3). Root cause: Stale shard routing table after availability zone failover. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-003-1",
+        "author": "eng-oncall-4",
+        "created_at": "2026-08-03T11:00:00Z",
+        "note": "Mitigated INC-2026-003 on search-indexer and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-004",
+    "title": "notification-worker SEV-4 incident #4: Kafka consumer group rebalance loop triggered by slow SMTP",
+    "service": "notification-worker",
+    "severity": "SEV-4",
+    "status": "resolved",
+    "environment": "staging",
+    "detected_at": "2026-08-04T12:15:00Z",
+    "resolved_at": "2026-08-04T13:01:00Z",
+    "mttr_minutes": 226,
+    "oncall_engineer": "eng-oncall-5",
+    "root_cause": "Kafka consumer group rebalance loop triggered by slow SMTP relay timeouts",
+    "summary": "Incident INC-2026-004 affected notification-worker in staging (SEV-4). Root cause: Kafka consumer group rebalance loop triggered by slow SMTP relay timeouts. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-004-1",
+        "author": "eng-oncall-5",
+        "created_at": "2026-08-04T14:00:00Z",
+        "note": "Mitigated INC-2026-004 on notification-worker and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-005",
+    "title": "checkout-gateway SEV-1 incident #5: Cart state deserialization error after schema migration v4",
+    "service": "checkout-gateway",
+    "severity": "SEV-1",
+    "status": "resolved",
+    "environment": "prod-us-east",
+    "detected_at": "2026-08-05T15:15:00Z",
+    "resolved_at": "2026-08-05T16:45:00Z",
+    "mttr_minutes": 30,
+    "oncall_engineer": "eng-oncall-6",
+    "root_cause": "Cart state deserialization error after schema migration v42",
+    "summary": "Incident INC-2026-005 affected checkout-gateway in prod-us-east (SEV-1). Root cause: Cart state deserialization error after schema migration v42. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-005-1",
+        "author": "eng-oncall-6",
+        "created_at": "2026-08-05T17:00:00Z",
+        "note": "Mitigated INC-2026-005 on checkout-gateway and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-006",
+    "title": "billing-ledger SEV-2 incident #6: S3 export bucket IAM policy regression blocked nightly rec",
+    "service": "billing-ledger",
+    "severity": "SEV-2",
+    "status": "resolved",
+    "environment": "prod-eu-west",
+    "detected_at": "2026-08-06T18:15:00Z",
+    "resolved_at": "2026-08-06T19:25:00Z",
+    "mttr_minutes": 70,
+    "oncall_engineer": "eng-oncall-1",
+    "root_cause": "S3 export bucket IAM policy regression blocked nightly reconciliation snapshot",
+    "summary": "Incident INC-2026-006 affected billing-ledger in prod-eu-west (SEV-2). Root cause: S3 export bucket IAM policy regression blocked nightly reconciliation snapshot. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-006-1",
+        "author": "eng-oncall-1",
+        "created_at": "2026-08-06T20:00:00Z",
+        "note": "Mitigated INC-2026-006 on billing-ledger and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-007",
+    "title": "auth-service SEV-4 incident #7: Redis cluster connection pool exhaustion during OAuth toke",
+    "service": "auth-service",
+    "severity": "SEV-4",
+    "status": "resolved",
+    "environment": "prod-ap-south",
+    "detected_at": "2026-08-07T21:15:00Z",
+    "resolved_at": "2026-08-07T22:47:00Z",
+    "mttr_minutes": 212,
+    "oncall_engineer": "eng-oncall-2",
+    "root_cause": "Redis cluster connection pool exhaustion during OAuth token refresh burst",
+    "summary": "Incident INC-2026-007 affected auth-service in prod-ap-south (SEV-4). Root cause: Redis cluster connection pool exhaustion during OAuth token refresh burst. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-007-1",
+        "author": "eng-oncall-2",
+        "created_at": "2026-08-07T23:00:00Z",
+        "note": "Mitigated INC-2026-007 on auth-service and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-008",
+    "title": "payments-api SEV-1 incident #8: Database deadlock on concurrent ledger row updates under f",
+    "service": "payments-api",
+    "severity": "SEV-1",
+    "status": "resolved",
+    "environment": "staging",
+    "detected_at": "2026-08-08T00:15:00Z",
+    "resolved_at": "2026-08-08T01:06:00Z",
+    "mttr_minutes": 51,
+    "oncall_engineer": "eng-oncall-3",
+    "root_cause": "Database deadlock on concurrent ledger row updates under flash-sale load",
+    "summary": "Incident INC-2026-008 affected payments-api in staging (SEV-1). Root cause: Database deadlock on concurrent ledger row updates under flash-sale load. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-008-1",
+        "author": "eng-oncall-3",
+        "created_at": "2026-08-08T02:00:00Z",
+        "note": "Mitigated INC-2026-008 on payments-api and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-009",
+    "title": "search-indexer SEV-2 incident #9: Stale shard routing table after availability zone failover",
+    "service": "search-indexer",
+    "severity": "SEV-2",
+    "status": "resolved",
+    "environment": "prod-us-east",
+    "detected_at": "2026-08-09T03:15:00Z",
+    "resolved_at": "2026-08-09T04:46:00Z",
+    "mttr_minutes": 91,
+    "oncall_engineer": "eng-oncall-4",
+    "root_cause": "Stale shard routing table after availability zone failover",
+    "summary": "Incident INC-2026-009 affected search-indexer in prod-us-east (SEV-2). Root cause: Stale shard routing table after availability zone failover. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-009-1",
+        "author": "eng-oncall-4",
+        "created_at": "2026-08-09T05:00:00Z",
+        "note": "Mitigated INC-2026-009 on search-indexer and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-010",
+    "title": "notification-worker SEV-3 incident #10: Kafka consumer group rebalance loop triggered by slow SMTP",
+    "service": "notification-worker",
+    "severity": "SEV-3",
+    "status": "resolved",
+    "environment": "prod-eu-west",
+    "detected_at": "2026-08-10T06:15:00Z",
+    "resolved_at": "2026-08-10T07:13:00Z",
+    "mttr_minutes": 118,
+    "oncall_engineer": "eng-oncall-5",
+    "root_cause": "Kafka consumer group rebalance loop triggered by slow SMTP relay timeouts",
+    "summary": "Incident INC-2026-010 affected notification-worker in prod-eu-west (SEV-3). Root cause: Kafka consumer group rebalance loop triggered by slow SMTP relay timeouts. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-010-1",
+        "author": "eng-oncall-5",
+        "created_at": "2026-08-10T08:00:00Z",
+        "note": "Mitigated INC-2026-010 on notification-worker and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-011",
+    "title": "checkout-gateway SEV-4 incident #11: Cart state deserialization error after schema migration v4",
+    "service": "checkout-gateway",
+    "severity": "SEV-4",
+    "status": "resolved",
+    "environment": "prod-ap-south",
+    "detected_at": "2026-08-11T09:15:00Z",
+    "resolved_at": "2026-08-11T10:40:00Z",
+    "mttr_minutes": 205,
+    "oncall_engineer": "eng-oncall-6",
+    "root_cause": "Cart state deserialization error after schema migration v42",
+    "summary": "Incident INC-2026-011 affected checkout-gateway in prod-ap-south (SEV-4). Root cause: Cart state deserialization error after schema migration v42. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-011-1",
+        "author": "eng-oncall-6",
+        "created_at": "2026-08-11T11:00:00Z",
+        "note": "Mitigated INC-2026-011 on checkout-gateway and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-012",
+    "title": "billing-ledger SEV-1 incident #12: S3 export bucket IAM policy regression blocked nightly rec",
+    "service": "billing-ledger",
+    "severity": "SEV-1",
+    "status": "resolved",
+    "environment": "staging",
+    "detected_at": "2026-08-12T12:15:00Z",
+    "resolved_at": "2026-08-12T13:59:00Z",
+    "mttr_minutes": 44,
+    "oncall_engineer": "eng-oncall-1",
+    "root_cause": "S3 export bucket IAM policy regression blocked nightly reconciliation snapshot",
+    "summary": "Incident INC-2026-012 affected billing-ledger in staging (SEV-1). Root cause: S3 export bucket IAM policy regression blocked nightly reconciliation snapshot. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-012-1",
+        "author": "eng-oncall-1",
+        "created_at": "2026-08-12T14:00:00Z",
+        "note": "Mitigated INC-2026-012 on billing-ledger and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-013",
+    "title": "auth-service SEV-3 incident #13: Redis cluster connection pool exhaustion during OAuth toke",
+    "service": "auth-service",
+    "severity": "SEV-3",
+    "status": "resolved",
+    "environment": "prod-us-east",
+    "detected_at": "2026-08-13T15:15:00Z",
+    "resolved_at": "2026-08-13T16:34:00Z",
+    "mttr_minutes": 139,
+    "oncall_engineer": "eng-oncall-2",
+    "root_cause": "Redis cluster connection pool exhaustion during OAuth token refresh burst",
+    "summary": "Incident INC-2026-013 affected auth-service in prod-us-east (SEV-3). Root cause: Redis cluster connection pool exhaustion during OAuth token refresh burst. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-013-1",
+        "author": "eng-oncall-2",
+        "created_at": "2026-08-13T17:00:00Z",
+        "note": "Mitigated INC-2026-013 on auth-service and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-014",
+    "title": "payments-api SEV-4 incident #14: Database deadlock on concurrent ledger row updates under f",
+    "service": "payments-api",
+    "severity": "SEV-4",
+    "status": "resolved",
+    "environment": "prod-eu-west",
+    "detected_at": "2026-08-14T18:15:00Z",
+    "resolved_at": "2026-08-14T19:01:00Z",
+    "mttr_minutes": 226,
+    "oncall_engineer": "eng-oncall-3",
+    "root_cause": "Database deadlock on concurrent ledger row updates under flash-sale load",
+    "summary": "Incident INC-2026-014 affected payments-api in prod-eu-west (SEV-4). Root cause: Database deadlock on concurrent ledger row updates under flash-sale load. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-014-1",
+        "author": "eng-oncall-3",
+        "created_at": "2026-08-14T20:00:00Z",
+        "note": "Mitigated INC-2026-014 on payments-api and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-015",
+    "title": "search-indexer SEV-1 incident #15: Stale shard routing table after availability zone failover",
+    "service": "search-indexer",
+    "severity": "SEV-1",
+    "status": "resolved",
+    "environment": "prod-ap-south",
+    "detected_at": "2026-08-15T21:15:00Z",
+    "resolved_at": "2026-08-15T22:45:00Z",
+    "mttr_minutes": 30,
+    "oncall_engineer": "eng-oncall-4",
+    "root_cause": "Stale shard routing table after availability zone failover",
+    "summary": "Incident INC-2026-015 affected search-indexer in prod-ap-south (SEV-1). Root cause: Stale shard routing table after availability zone failover. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-015-1",
+        "author": "eng-oncall-4",
+        "created_at": "2026-08-15T23:00:00Z",
+        "note": "Mitigated INC-2026-015 on search-indexer and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-016",
+    "title": "notification-worker SEV-2 incident #16: Kafka consumer group rebalance loop triggered by slow SMTP",
+    "service": "notification-worker",
+    "severity": "SEV-2",
+    "status": "resolved",
+    "environment": "staging",
+    "detected_at": "2026-08-16T00:15:00Z",
+    "resolved_at": "2026-08-16T01:25:00Z",
+    "mttr_minutes": 70,
+    "oncall_engineer": "eng-oncall-5",
+    "root_cause": "Kafka consumer group rebalance loop triggered by slow SMTP relay timeouts",
+    "summary": "Incident INC-2026-016 affected notification-worker in staging (SEV-2). Root cause: Kafka consumer group rebalance loop triggered by slow SMTP relay timeouts. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-016-1",
+        "author": "eng-oncall-5",
+        "created_at": "2026-08-16T02:00:00Z",
+        "note": "Mitigated INC-2026-016 on notification-worker and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-017",
+    "title": "checkout-gateway SEV-3 incident #17: Cart state deserialization error after schema migration v4",
+    "service": "checkout-gateway",
+    "severity": "SEV-3",
+    "status": "resolved",
+    "environment": "prod-us-east",
+    "detected_at": "2026-08-17T03:15:00Z",
+    "resolved_at": "2026-08-17T04:27:00Z",
+    "mttr_minutes": 132,
+    "oncall_engineer": "eng-oncall-6",
+    "root_cause": "Cart state deserialization error after schema migration v42",
+    "summary": "Incident INC-2026-017 affected checkout-gateway in prod-us-east (SEV-3). Root cause: Cart state deserialization error after schema migration v42. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-017-1",
+        "author": "eng-oncall-6",
+        "created_at": "2026-08-17T05:00:00Z",
+        "note": "Mitigated INC-2026-017 on checkout-gateway and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-018",
+    "title": "billing-ledger SEV-4 incident #18: S3 export bucket IAM policy regression blocked nightly rec",
+    "service": "billing-ledger",
+    "severity": "SEV-4",
+    "status": "resolved",
+    "environment": "prod-eu-west",
+    "detected_at": "2026-08-18T06:15:00Z",
+    "resolved_at": "2026-08-18T07:54:00Z",
+    "mttr_minutes": 219,
+    "oncall_engineer": "eng-oncall-1",
+    "root_cause": "S3 export bucket IAM policy regression blocked nightly reconciliation snapshot",
+    "summary": "Incident INC-2026-018 affected billing-ledger in prod-eu-west (SEV-4). Root cause: S3 export bucket IAM policy regression blocked nightly reconciliation snapshot. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-018-1",
+        "author": "eng-oncall-1",
+        "created_at": "2026-08-18T08:00:00Z",
+        "note": "Mitigated INC-2026-018 on billing-ledger and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-019",
+    "title": "auth-service SEV-2 incident #19: Redis cluster connection pool exhaustion during OAuth toke",
+    "service": "auth-service",
+    "severity": "SEV-2",
+    "status": "resolved",
+    "environment": "prod-ap-south",
+    "detected_at": "2026-08-19T09:15:00Z",
+    "resolved_at": "2026-08-19T10:46:00Z",
+    "mttr_minutes": 91,
+    "oncall_engineer": "eng-oncall-2",
+    "root_cause": "Redis cluster connection pool exhaustion during OAuth token refresh burst",
+    "summary": "Incident INC-2026-019 affected auth-service in prod-ap-south (SEV-2). Root cause: Redis cluster connection pool exhaustion during OAuth token refresh burst. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-019-1",
+        "author": "eng-oncall-2",
+        "created_at": "2026-08-19T11:00:00Z",
+        "note": "Mitigated INC-2026-019 on auth-service and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-020",
+    "title": "payments-api SEV-3 incident #20: Database deadlock on concurrent ledger row updates under f",
+    "service": "payments-api",
+    "severity": "SEV-3",
+    "status": "resolved",
+    "environment": "staging",
+    "detected_at": "2026-08-20T12:15:00Z",
+    "resolved_at": "2026-08-20T13:13:00Z",
+    "mttr_minutes": 118,
+    "oncall_engineer": "eng-oncall-3",
+    "root_cause": "Database deadlock on concurrent ledger row updates under flash-sale load",
+    "summary": "Incident INC-2026-020 affected payments-api in staging (SEV-3). Root cause: Database deadlock on concurrent ledger row updates under flash-sale load. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-020-1",
+        "author": "eng-oncall-3",
+        "created_at": "2026-08-20T14:00:00Z",
+        "note": "Mitigated INC-2026-020 on payments-api and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-021",
+    "title": "search-indexer SEV-4 incident #21: Stale shard routing table after availability zone failover",
+    "service": "search-indexer",
+    "severity": "SEV-4",
+    "status": "resolved",
+    "environment": "prod-us-east",
+    "detected_at": "2026-08-21T15:15:00Z",
+    "resolved_at": "2026-08-21T16:40:00Z",
+    "mttr_minutes": 205,
+    "oncall_engineer": "eng-oncall-4",
+    "root_cause": "Stale shard routing table after availability zone failover",
+    "summary": "Incident INC-2026-021 affected search-indexer in prod-us-east (SEV-4). Root cause: Stale shard routing table after availability zone failover. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-021-1",
+        "author": "eng-oncall-4",
+        "created_at": "2026-08-21T17:00:00Z",
+        "note": "Mitigated INC-2026-021 on search-indexer and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-022",
+    "title": "notification-worker SEV-1 incident #22: Kafka consumer group rebalance loop triggered by slow SMTP",
+    "service": "notification-worker",
+    "severity": "SEV-1",
+    "status": "resolved",
+    "environment": "prod-eu-west",
+    "detected_at": "2026-08-22T18:15:00Z",
+    "resolved_at": "2026-08-22T19:59:00Z",
+    "mttr_minutes": 44,
+    "oncall_engineer": "eng-oncall-5",
+    "root_cause": "Kafka consumer group rebalance loop triggered by slow SMTP relay timeouts",
+    "summary": "Incident INC-2026-022 affected notification-worker in prod-eu-west (SEV-1). Root cause: Kafka consumer group rebalance loop triggered by slow SMTP relay timeouts. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-022-1",
+        "author": "eng-oncall-5",
+        "created_at": "2026-08-22T20:00:00Z",
+        "note": "Mitigated INC-2026-022 on notification-worker and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-023",
+    "title": "checkout-gateway SEV-2 incident #23: Cart state deserialization error after schema migration v4",
+    "service": "checkout-gateway",
+    "severity": "SEV-2",
+    "status": "resolved",
+    "environment": "prod-ap-south",
+    "detected_at": "2026-08-23T21:15:00Z",
+    "resolved_at": "2026-08-23T22:39:00Z",
+    "mttr_minutes": 84,
+    "oncall_engineer": "eng-oncall-6",
+    "root_cause": "Cart state deserialization error after schema migration v42",
+    "summary": "Incident INC-2026-023 affected checkout-gateway in prod-ap-south (SEV-2). Root cause: Cart state deserialization error after schema migration v42. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-023-1",
+        "author": "eng-oncall-6",
+        "created_at": "2026-08-23T23:00:00Z",
+        "note": "Mitigated INC-2026-023 on checkout-gateway and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-024",
+    "title": "billing-ledger SEV-3 incident #24: S3 export bucket IAM policy regression blocked nightly rec",
+    "service": "billing-ledger",
+    "severity": "SEV-3",
+    "status": "resolved",
+    "environment": "staging",
+    "detected_at": "2026-08-24T00:15:00Z",
+    "resolved_at": "2026-08-24T01:41:00Z",
+    "mttr_minutes": 146,
+    "oncall_engineer": "eng-oncall-1",
+    "root_cause": "S3 export bucket IAM policy regression blocked nightly reconciliation snapshot",
+    "summary": "Incident INC-2026-024 affected billing-ledger in staging (SEV-3). Root cause: S3 export bucket IAM policy regression blocked nightly reconciliation snapshot. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-024-1",
+        "author": "eng-oncall-1",
+        "created_at": "2026-08-24T02:00:00Z",
+        "note": "Mitigated INC-2026-024 on billing-ledger and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-025",
+    "title": "auth-service SEV-1 incident #25: Redis cluster connection pool exhaustion during OAuth toke",
+    "service": "auth-service",
+    "severity": "SEV-1",
+    "status": "resolved",
+    "environment": "prod-us-east",
+    "detected_at": "2026-08-25T03:15:00Z",
+    "resolved_at": "2026-08-25T04:45:00Z",
+    "mttr_minutes": 30,
+    "oncall_engineer": "eng-oncall-2",
+    "root_cause": "Redis cluster connection pool exhaustion during OAuth token refresh burst",
+    "summary": "Incident INC-2026-025 affected auth-service in prod-us-east (SEV-1). Root cause: Redis cluster connection pool exhaustion during OAuth token refresh burst. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-025-1",
+        "author": "eng-oncall-2",
+        "created_at": "2026-08-25T05:00:00Z",
+        "note": "Mitigated INC-2026-025 on auth-service and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-026",
+    "title": "payments-api SEV-2 incident #26: Database deadlock on concurrent ledger row updates under f",
+    "service": "payments-api",
+    "severity": "SEV-2",
+    "status": "resolved",
+    "environment": "prod-eu-west",
+    "detected_at": "2026-08-26T06:15:00Z",
+    "resolved_at": "2026-08-26T07:25:00Z",
+    "mttr_minutes": 70,
+    "oncall_engineer": "eng-oncall-3",
+    "root_cause": "Database deadlock on concurrent ledger row updates under flash-sale load",
+    "summary": "Incident INC-2026-026 affected payments-api in prod-eu-west (SEV-2). Root cause: Database deadlock on concurrent ledger row updates under flash-sale load. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-026-1",
+        "author": "eng-oncall-3",
+        "created_at": "2026-08-26T08:00:00Z",
+        "note": "Mitigated INC-2026-026 on payments-api and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-027",
+    "title": "search-indexer SEV-3 incident #27: Stale shard routing table after availability zone failover",
+    "service": "search-indexer",
+    "severity": "SEV-3",
+    "status": "resolved",
+    "environment": "prod-ap-south",
+    "detected_at": "2026-08-27T09:15:00Z",
+    "resolved_at": "2026-08-27T10:27:00Z",
+    "mttr_minutes": 132,
+    "oncall_engineer": "eng-oncall-4",
+    "root_cause": "Stale shard routing table after availability zone failover",
+    "summary": "Incident INC-2026-027 affected search-indexer in prod-ap-south (SEV-3). Root cause: Stale shard routing table after availability zone failover. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-027-1",
+        "author": "eng-oncall-4",
+        "created_at": "2026-08-27T11:00:00Z",
+        "note": "Mitigated INC-2026-027 on search-indexer and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-028",
+    "title": "notification-worker SEV-4 incident #28: Kafka consumer group rebalance loop triggered by slow SMTP",
+    "service": "notification-worker",
+    "severity": "SEV-4",
+    "status": "resolved",
+    "environment": "staging",
+    "detected_at": "2026-08-28T12:15:00Z",
+    "resolved_at": "2026-08-28T13:54:00Z",
+    "mttr_minutes": 219,
+    "oncall_engineer": "eng-oncall-5",
+    "root_cause": "Kafka consumer group rebalance loop triggered by slow SMTP relay timeouts",
+    "summary": "Incident INC-2026-028 affected notification-worker in staging (SEV-4). Root cause: Kafka consumer group rebalance loop triggered by slow SMTP relay timeouts. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-028-1",
+        "author": "eng-oncall-5",
+        "created_at": "2026-08-28T14:00:00Z",
+        "note": "Mitigated INC-2026-028 on notification-worker and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-029",
+    "title": "checkout-gateway SEV-1 incident #29: Cart state deserialization error after schema migration v4",
+    "service": "checkout-gateway",
+    "severity": "SEV-1",
+    "status": "resolved",
+    "environment": "prod-us-east",
+    "detected_at": "2026-09-01T15:15:00Z",
+    "resolved_at": "2026-09-01T16:13:00Z",
+    "mttr_minutes": 58,
+    "oncall_engineer": "eng-oncall-6",
+    "root_cause": "Cart state deserialization error after schema migration v42",
+    "summary": "Incident INC-2026-029 affected checkout-gateway in prod-us-east (SEV-1). Root cause: Cart state deserialization error after schema migration v42. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-029-1",
+        "author": "eng-oncall-6",
+        "created_at": "2026-09-01T17:00:00Z",
+        "note": "Mitigated INC-2026-029 on checkout-gateway and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-030",
+    "title": "billing-ledger SEV-2 incident #30: S3 export bucket IAM policy regression blocked nightly rec",
+    "service": "billing-ledger",
+    "severity": "SEV-2",
+    "status": "resolved",
+    "environment": "prod-eu-west",
+    "detected_at": "2026-09-02T18:15:00Z",
+    "resolved_at": "2026-09-02T19:18:00Z",
+    "mttr_minutes": 63,
+    "oncall_engineer": "eng-oncall-1",
+    "root_cause": "S3 export bucket IAM policy regression blocked nightly reconciliation snapshot",
+    "summary": "Incident INC-2026-030 affected billing-ledger in prod-eu-west (SEV-2). Root cause: S3 export bucket IAM policy regression blocked nightly reconciliation snapshot. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-030-1",
+        "author": "eng-oncall-1",
+        "created_at": "2026-09-02T20:00:00Z",
+        "note": "Mitigated INC-2026-030 on billing-ledger and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-031",
+    "title": "auth-service SEV-4 incident #31: Redis cluster connection pool exhaustion during OAuth toke",
+    "service": "auth-service",
+    "severity": "SEV-4",
+    "status": "resolved",
+    "environment": "prod-ap-south",
+    "detected_at": "2026-09-03T21:15:00Z",
+    "resolved_at": "2026-09-03T22:40:00Z",
+    "mttr_minutes": 205,
+    "oncall_engineer": "eng-oncall-2",
+    "root_cause": "Redis cluster connection pool exhaustion during OAuth token refresh burst",
+    "summary": "Incident INC-2026-031 affected auth-service in prod-ap-south (SEV-4). Root cause: Redis cluster connection pool exhaustion during OAuth token refresh burst. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-031-1",
+        "author": "eng-oncall-2",
+        "created_at": "2026-09-03T23:00:00Z",
+        "note": "Mitigated INC-2026-031 on auth-service and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-032",
+    "title": "payments-api SEV-1 incident #32: Database deadlock on concurrent ledger row updates under f",
+    "service": "payments-api",
+    "severity": "SEV-1",
+    "status": "resolved",
+    "environment": "staging",
+    "detected_at": "2026-09-04T00:15:00Z",
+    "resolved_at": "2026-09-04T01:59:00Z",
+    "mttr_minutes": 44,
+    "oncall_engineer": "eng-oncall-3",
+    "root_cause": "Database deadlock on concurrent ledger row updates under flash-sale load",
+    "summary": "Incident INC-2026-032 affected payments-api in staging (SEV-1). Root cause: Database deadlock on concurrent ledger row updates under flash-sale load. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-032-1",
+        "author": "eng-oncall-3",
+        "created_at": "2026-09-04T02:00:00Z",
+        "note": "Mitigated INC-2026-032 on payments-api and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-033",
+    "title": "search-indexer SEV-2 incident #33: Stale shard routing table after availability zone failover",
+    "service": "search-indexer",
+    "severity": "SEV-2",
+    "status": "resolved",
+    "environment": "prod-us-east",
+    "detected_at": "2026-09-05T03:15:00Z",
+    "resolved_at": "2026-09-05T04:39:00Z",
+    "mttr_minutes": 84,
+    "oncall_engineer": "eng-oncall-4",
+    "root_cause": "Stale shard routing table after availability zone failover",
+    "summary": "Incident INC-2026-033 affected search-indexer in prod-us-east (SEV-2). Root cause: Stale shard routing table after availability zone failover. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-033-1",
+        "author": "eng-oncall-4",
+        "created_at": "2026-09-05T05:00:00Z",
+        "note": "Mitigated INC-2026-033 on search-indexer and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-034",
+    "title": "notification-worker SEV-3 incident #34: Kafka consumer group rebalance loop triggered by slow SMTP",
+    "service": "notification-worker",
+    "severity": "SEV-3",
+    "status": "resolved",
+    "environment": "prod-eu-west",
+    "detected_at": "2026-09-06T06:15:00Z",
+    "resolved_at": "2026-09-06T07:41:00Z",
+    "mttr_minutes": 146,
+    "oncall_engineer": "eng-oncall-5",
+    "root_cause": "Kafka consumer group rebalance loop triggered by slow SMTP relay timeouts",
+    "summary": "Incident INC-2026-034 affected notification-worker in prod-eu-west (SEV-3). Root cause: Kafka consumer group rebalance loop triggered by slow SMTP relay timeouts. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-034-1",
+        "author": "eng-oncall-5",
+        "created_at": "2026-09-06T08:00:00Z",
+        "note": "Mitigated INC-2026-034 on notification-worker and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-035",
+    "title": "checkout-gateway SEV-4 incident #35: Cart state deserialization error after schema migration v4",
+    "service": "checkout-gateway",
+    "severity": "SEV-4",
+    "status": "resolved",
+    "environment": "prod-ap-south",
+    "detected_at": "2026-09-07T09:15:00Z",
+    "resolved_at": "2026-09-07T10:33:00Z",
+    "mttr_minutes": 198,
+    "oncall_engineer": "eng-oncall-6",
+    "root_cause": "Cart state deserialization error after schema migration v42",
+    "summary": "Incident INC-2026-035 affected checkout-gateway in prod-ap-south (SEV-4). Root cause: Cart state deserialization error after schema migration v42. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-035-1",
+        "author": "eng-oncall-6",
+        "created_at": "2026-09-07T11:00:00Z",
+        "note": "Mitigated INC-2026-035 on checkout-gateway and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-036",
+    "title": "billing-ledger SEV-1 incident #36: S3 export bucket IAM policy regression blocked nightly rec",
+    "service": "billing-ledger",
+    "severity": "SEV-1",
+    "status": "resolved",
+    "environment": "staging",
+    "detected_at": "2026-09-08T12:15:00Z",
+    "resolved_at": "2026-09-08T13:52:00Z",
+    "mttr_minutes": 37,
+    "oncall_engineer": "eng-oncall-1",
+    "root_cause": "S3 export bucket IAM policy regression blocked nightly reconciliation snapshot",
+    "summary": "Incident INC-2026-036 affected billing-ledger in staging (SEV-1). Root cause: S3 export bucket IAM policy regression blocked nightly reconciliation snapshot. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-036-1",
+        "author": "eng-oncall-1",
+        "created_at": "2026-09-08T14:00:00Z",
+        "note": "Mitigated INC-2026-036 on billing-ledger and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-037",
+    "title": "auth-service SEV-3 incident #37: Redis cluster connection pool exhaustion during OAuth toke",
+    "service": "auth-service",
+    "severity": "SEV-3",
+    "status": "resolved",
+    "environment": "prod-us-east",
+    "detected_at": "2026-09-09T15:15:00Z",
+    "resolved_at": "2026-09-09T16:27:00Z",
+    "mttr_minutes": 132,
+    "oncall_engineer": "eng-oncall-2",
+    "root_cause": "Redis cluster connection pool exhaustion during OAuth token refresh burst",
+    "summary": "Incident INC-2026-037 affected auth-service in prod-us-east (SEV-3). Root cause: Redis cluster connection pool exhaustion during OAuth token refresh burst. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-037-1",
+        "author": "eng-oncall-2",
+        "created_at": "2026-09-09T17:00:00Z",
+        "note": "Mitigated INC-2026-037 on auth-service and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-038",
+    "title": "payments-api SEV-4 incident #38: Database deadlock on concurrent ledger row updates under f",
+    "service": "payments-api",
+    "severity": "SEV-4",
+    "status": "resolved",
+    "environment": "prod-eu-west",
+    "detected_at": "2026-09-10T18:15:00Z",
+    "resolved_at": "2026-09-10T19:54:00Z",
+    "mttr_minutes": 219,
+    "oncall_engineer": "eng-oncall-3",
+    "root_cause": "Database deadlock on concurrent ledger row updates under flash-sale load",
+    "summary": "Incident INC-2026-038 affected payments-api in prod-eu-west (SEV-4). Root cause: Database deadlock on concurrent ledger row updates under flash-sale load. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-038-1",
+        "author": "eng-oncall-3",
+        "created_at": "2026-09-10T20:00:00Z",
+        "note": "Mitigated INC-2026-038 on payments-api and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-039",
+    "title": "search-indexer SEV-1 incident #39: Stale shard routing table after availability zone failover",
+    "service": "search-indexer",
+    "severity": "SEV-1",
+    "status": "resolved",
+    "environment": "prod-ap-south",
+    "detected_at": "2026-09-11T21:15:00Z",
+    "resolved_at": "2026-09-11T22:13:00Z",
+    "mttr_minutes": 58,
+    "oncall_engineer": "eng-oncall-4",
+    "root_cause": "Stale shard routing table after availability zone failover",
+    "summary": "Incident INC-2026-039 affected search-indexer in prod-ap-south (SEV-1). Root cause: Stale shard routing table after availability zone failover. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-039-1",
+        "author": "eng-oncall-4",
+        "created_at": "2026-09-11T23:00:00Z",
+        "note": "Mitigated INC-2026-039 on search-indexer and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-040",
+    "title": "notification-worker SEV-2 incident #40: Kafka consumer group rebalance loop triggered by slow SMTP",
+    "service": "notification-worker",
+    "severity": "SEV-2",
+    "status": "resolved",
+    "environment": "staging",
+    "detected_at": "2026-09-12T00:15:00Z",
+    "resolved_at": "2026-09-12T01:18:00Z",
+    "mttr_minutes": 63,
+    "oncall_engineer": "eng-oncall-5",
+    "root_cause": "Kafka consumer group rebalance loop triggered by slow SMTP relay timeouts",
+    "summary": "Incident INC-2026-040 affected notification-worker in staging (SEV-2). Root cause: Kafka consumer group rebalance loop triggered by slow SMTP relay timeouts. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-040-1",
+        "author": "eng-oncall-5",
+        "created_at": "2026-09-12T02:00:00Z",
+        "note": "Mitigated INC-2026-040 on notification-worker and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-041",
+    "title": "checkout-gateway SEV-3 incident #41: Cart state deserialization error after schema migration v4",
+    "service": "checkout-gateway",
+    "severity": "SEV-3",
+    "status": "resolved",
+    "environment": "prod-us-east",
+    "detected_at": "2026-09-13T03:15:00Z",
+    "resolved_at": "2026-09-13T04:20:00Z",
+    "mttr_minutes": 125,
+    "oncall_engineer": "eng-oncall-6",
+    "root_cause": "Cart state deserialization error after schema migration v42",
+    "summary": "Incident INC-2026-041 affected checkout-gateway in prod-us-east (SEV-3). Root cause: Cart state deserialization error after schema migration v42. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-041-1",
+        "author": "eng-oncall-6",
+        "created_at": "2026-09-13T05:00:00Z",
+        "note": "Mitigated INC-2026-041 on checkout-gateway and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-042",
+    "title": "billing-ledger SEV-4 incident #42: S3 export bucket IAM policy regression blocked nightly rec",
+    "service": "billing-ledger",
+    "severity": "SEV-4",
+    "status": "resolved",
+    "environment": "prod-eu-west",
+    "detected_at": "2026-09-14T06:15:00Z",
+    "resolved_at": "2026-09-14T07:47:00Z",
+    "mttr_minutes": 212,
+    "oncall_engineer": "eng-oncall-1",
+    "root_cause": "S3 export bucket IAM policy regression blocked nightly reconciliation snapshot",
+    "summary": "Incident INC-2026-042 affected billing-ledger in prod-eu-west (SEV-4). Root cause: S3 export bucket IAM policy regression blocked nightly reconciliation snapshot. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-042-1",
+        "author": "eng-oncall-1",
+        "created_at": "2026-09-14T08:00:00Z",
+        "note": "Mitigated INC-2026-042 on billing-ledger and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-043",
+    "title": "auth-service SEV-2 incident #43: Redis cluster connection pool exhaustion during OAuth toke",
+    "service": "auth-service",
+    "severity": "SEV-2",
+    "status": "resolved",
+    "environment": "prod-ap-south",
+    "detected_at": "2026-09-15T09:15:00Z",
+    "resolved_at": "2026-09-15T10:39:00Z",
+    "mttr_minutes": 84,
+    "oncall_engineer": "eng-oncall-2",
+    "root_cause": "Redis cluster connection pool exhaustion during OAuth token refresh burst",
+    "summary": "Incident INC-2026-043 affected auth-service in prod-ap-south (SEV-2). Root cause: Redis cluster connection pool exhaustion during OAuth token refresh burst. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-043-1",
+        "author": "eng-oncall-2",
+        "created_at": "2026-09-15T11:00:00Z",
+        "note": "Mitigated INC-2026-043 on auth-service and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-044",
+    "title": "payments-api SEV-3 incident #44: Database deadlock on concurrent ledger row updates under f",
+    "service": "payments-api",
+    "severity": "SEV-3",
+    "status": "resolved",
+    "environment": "staging",
+    "detected_at": "2026-09-16T12:15:00Z",
+    "resolved_at": "2026-09-16T13:41:00Z",
+    "mttr_minutes": 146,
+    "oncall_engineer": "eng-oncall-3",
+    "root_cause": "Database deadlock on concurrent ledger row updates under flash-sale load",
+    "summary": "Incident INC-2026-044 affected payments-api in staging (SEV-3). Root cause: Database deadlock on concurrent ledger row updates under flash-sale load. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-044-1",
+        "author": "eng-oncall-3",
+        "created_at": "2026-09-16T14:00:00Z",
+        "note": "Mitigated INC-2026-044 on payments-api and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-045",
+    "title": "search-indexer SEV-4 incident #45: Stale shard routing table after availability zone failover",
+    "service": "search-indexer",
+    "severity": "SEV-4",
+    "status": "resolved",
+    "environment": "prod-us-east",
+    "detected_at": "2026-09-17T15:15:00Z",
+    "resolved_at": "2026-09-17T16:33:00Z",
+    "mttr_minutes": 198,
+    "oncall_engineer": "eng-oncall-4",
+    "root_cause": "Stale shard routing table after availability zone failover",
+    "summary": "Incident INC-2026-045 affected search-indexer in prod-us-east (SEV-4). Root cause: Stale shard routing table after availability zone failover. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-045-1",
+        "author": "eng-oncall-4",
+        "created_at": "2026-09-17T17:00:00Z",
+        "note": "Mitigated INC-2026-045 on search-indexer and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-046",
+    "title": "notification-worker SEV-1 incident #46: Kafka consumer group rebalance loop triggered by slow SMTP",
+    "service": "notification-worker",
+    "severity": "SEV-1",
+    "status": "resolved",
+    "environment": "prod-eu-west",
+    "detected_at": "2026-09-18T18:15:00Z",
+    "resolved_at": "2026-09-18T19:52:00Z",
+    "mttr_minutes": 37,
+    "oncall_engineer": "eng-oncall-5",
+    "root_cause": "Kafka consumer group rebalance loop triggered by slow SMTP relay timeouts",
+    "summary": "Incident INC-2026-046 affected notification-worker in prod-eu-west (SEV-1). Root cause: Kafka consumer group rebalance loop triggered by slow SMTP relay timeouts. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-046-1",
+        "author": "eng-oncall-5",
+        "created_at": "2026-09-18T20:00:00Z",
+        "note": "Mitigated INC-2026-046 on notification-worker and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-047",
+    "title": "checkout-gateway SEV-2 incident #47: Cart state deserialization error after schema migration v4",
+    "service": "checkout-gateway",
+    "severity": "SEV-2",
+    "status": "resolved",
+    "environment": "prod-ap-south",
+    "detected_at": "2026-09-19T21:15:00Z",
+    "resolved_at": "2026-09-19T22:32:00Z",
+    "mttr_minutes": 77,
+    "oncall_engineer": "eng-oncall-6",
+    "root_cause": "Cart state deserialization error after schema migration v42",
+    "summary": "Incident INC-2026-047 affected checkout-gateway in prod-ap-south (SEV-2). Root cause: Cart state deserialization error after schema migration v42. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-047-1",
+        "author": "eng-oncall-6",
+        "created_at": "2026-09-19T23:00:00Z",
+        "note": "Mitigated INC-2026-047 on checkout-gateway and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-048",
+    "title": "billing-ledger SEV-3 incident #48: S3 export bucket IAM policy regression blocked nightly rec",
+    "service": "billing-ledger",
+    "severity": "SEV-3",
+    "status": "resolved",
+    "environment": "staging",
+    "detected_at": "2026-09-20T00:15:00Z",
+    "resolved_at": "2026-09-20T01:34:00Z",
+    "mttr_minutes": 139,
+    "oncall_engineer": "eng-oncall-1",
+    "root_cause": "S3 export bucket IAM policy regression blocked nightly reconciliation snapshot",
+    "summary": "Incident INC-2026-048 affected billing-ledger in staging (SEV-3). Root cause: S3 export bucket IAM policy regression blocked nightly reconciliation snapshot. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-048-1",
+        "author": "eng-oncall-1",
+        "created_at": "2026-09-20T02:00:00Z",
+        "note": "Mitigated INC-2026-048 on billing-ledger and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-049",
+    "title": "auth-service SEV-1 incident #49: Redis cluster connection pool exhaustion during OAuth toke",
+    "service": "auth-service",
+    "severity": "SEV-1",
+    "status": "investigating",
+    "environment": "prod-us-east",
+    "detected_at": "2026-09-21T03:15:00Z",
+    "resolved_at": null,
+    "mttr_minutes": null,
+    "oncall_engineer": "eng-oncall-2",
+    "root_cause": "Redis cluster connection pool exhaustion during OAuth token refresh burst",
+    "summary": "Incident INC-2026-049 affected auth-service in prod-us-east (SEV-1). Root cause: Redis cluster connection pool exhaustion during OAuth token refresh burst. Status: investigating.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-049-1",
+        "author": "eng-oncall-2",
+        "created_at": "2026-09-21T05:00:00Z",
+        "note": "Mitigated INC-2026-049 on auth-service and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-050",
+    "title": "payments-api SEV-2 incident #50: Database deadlock on concurrent ledger row updates under f",
+    "service": "payments-api",
+    "severity": "SEV-2",
+    "status": "resolved",
+    "environment": "prod-eu-west",
+    "detected_at": "2026-09-22T06:15:00Z",
+    "resolved_at": "2026-09-22T07:18:00Z",
+    "mttr_minutes": 63,
+    "oncall_engineer": "eng-oncall-3",
+    "root_cause": "Database deadlock on concurrent ledger row updates under flash-sale load",
+    "summary": "Incident INC-2026-050 affected payments-api in prod-eu-west (SEV-2). Root cause: Database deadlock on concurrent ledger row updates under flash-sale load. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-050-1",
+        "author": "eng-oncall-3",
+        "created_at": "2026-09-22T08:00:00Z",
+        "note": "Mitigated INC-2026-050 on payments-api and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-051",
+    "title": "search-indexer SEV-3 incident #51: Stale shard routing table after availability zone failover",
+    "service": "search-indexer",
+    "severity": "SEV-3",
+    "status": "resolved",
+    "environment": "prod-ap-south",
+    "detected_at": "2026-09-23T09:15:00Z",
+    "resolved_at": "2026-09-23T10:20:00Z",
+    "mttr_minutes": 125,
+    "oncall_engineer": "eng-oncall-4",
+    "root_cause": "Stale shard routing table after availability zone failover",
+    "summary": "Incident INC-2026-051 affected search-indexer in prod-ap-south (SEV-3). Root cause: Stale shard routing table after availability zone failover. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-051-1",
+        "author": "eng-oncall-4",
+        "created_at": "2026-09-23T11:00:00Z",
+        "note": "Mitigated INC-2026-051 on search-indexer and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-052",
+    "title": "notification-worker SEV-4 incident #52: Kafka consumer group rebalance loop triggered by slow SMTP",
+    "service": "notification-worker",
+    "severity": "SEV-4",
+    "status": "resolved",
+    "environment": "staging",
+    "detected_at": "2026-09-24T12:15:00Z",
+    "resolved_at": "2026-09-24T13:47:00Z",
+    "mttr_minutes": 212,
+    "oncall_engineer": "eng-oncall-5",
+    "root_cause": "Kafka consumer group rebalance loop triggered by slow SMTP relay timeouts",
+    "summary": "Incident INC-2026-052 affected notification-worker in staging (SEV-4). Root cause: Kafka consumer group rebalance loop triggered by slow SMTP relay timeouts. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-052-1",
+        "author": "eng-oncall-5",
+        "created_at": "2026-09-24T14:00:00Z",
+        "note": "Mitigated INC-2026-052 on notification-worker and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-053",
+    "title": "checkout-gateway SEV-1 incident #53: Cart state deserialization error after schema migration v4",
+    "service": "checkout-gateway",
+    "severity": "SEV-1",
+    "status": "mitigated",
+    "environment": "prod-us-east",
+    "detected_at": "2026-09-25T15:15:00Z",
+    "resolved_at": null,
+    "mttr_minutes": null,
+    "oncall_engineer": "eng-oncall-6",
+    "root_cause": "Cart state deserialization error after schema migration v42",
+    "summary": "Incident INC-2026-053 affected checkout-gateway in prod-us-east (SEV-1). Root cause: Cart state deserialization error after schema migration v42. Status: mitigated.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-053-1",
+        "author": "eng-oncall-6",
+        "created_at": "2026-09-25T17:00:00Z",
+        "note": "Mitigated INC-2026-053 on checkout-gateway and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-054",
+    "title": "billing-ledger SEV-2 incident #54: S3 export bucket IAM policy regression blocked nightly rec",
+    "service": "billing-ledger",
+    "severity": "SEV-2",
+    "status": "investigating",
+    "environment": "prod-eu-west",
+    "detected_at": "2026-09-26T18:15:00Z",
+    "resolved_at": null,
+    "mttr_minutes": null,
+    "oncall_engineer": "eng-oncall-1",
+    "root_cause": "S3 export bucket IAM policy regression blocked nightly reconciliation snapshot",
+    "summary": "Incident INC-2026-054 affected billing-ledger in prod-eu-west (SEV-2). Root cause: S3 export bucket IAM policy regression blocked nightly reconciliation snapshot. Status: investigating.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-054-1",
+        "author": "eng-oncall-1",
+        "created_at": "2026-09-26T20:00:00Z",
+        "note": "Mitigated INC-2026-054 on billing-ledger and added alerting threshold check."
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2026-055",
+    "title": "auth-service SEV-4 incident #55: Redis cluster connection pool exhaustion during OAuth toke",
+    "service": "auth-service",
+    "severity": "SEV-4",
+    "status": "resolved",
+    "environment": "prod-ap-south",
+    "detected_at": "2026-09-27T21:15:00Z",
+    "resolved_at": "2026-09-27T22:33:00Z",
+    "mttr_minutes": 198,
+    "oncall_engineer": "eng-oncall-2",
+    "root_cause": "Redis cluster connection pool exhaustion during OAuth token refresh burst",
+    "summary": "Incident INC-2026-055 affected auth-service in prod-ap-south (SEV-4). Root cause: Redis cluster connection pool exhaustion during OAuth token refresh burst. Status: resolved.",
+    "remediation_notes": [
+      {
+        "note_id": "NOTE-055-1",
+        "author": "eng-oncall-2",
+        "created_at": "2026-09-27T23:00:00Z",
+        "note": "Mitigated INC-2026-055 on auth-service and added alerting threshold check."
+      }
+    ]
+  }
+]

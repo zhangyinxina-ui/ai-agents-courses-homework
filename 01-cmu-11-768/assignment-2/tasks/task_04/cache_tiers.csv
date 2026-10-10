@@ -1,0 +1,13 @@
+record_id,region,audit_state,gross_gb,overhead_gb
+401,ap-east,verified,120,15
+402,ap-east,pending,100,20
+403,ap-east,verified,80,10
+404,eu-central,verified,200,25
+405,eu-central,pending,90,10
+406,eu-central,verified,150,15
+407,us-east,verified,300,40
+408,us-east,pending,120,20
+409,us-east,verified,250,30
+410,us-west,verified,180,20
+411,us-west,pending,110,10
+412,us-west,verified,140,10

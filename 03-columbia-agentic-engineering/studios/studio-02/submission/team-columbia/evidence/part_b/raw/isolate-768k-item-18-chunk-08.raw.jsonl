@@ -1,0 +1,1 @@
+{"type": "message_end", "message": {"role": "assistant", "stopReason": "end_turn", "content": [{"type": "text", "text": "It was opened in presence of Colonel D. Daniel Traconis."}], "usage": {"input": 97365, "output": 91, "cacheRead": 0, "cacheWrite": 0, "cost": {"total": 0.02445}}}}

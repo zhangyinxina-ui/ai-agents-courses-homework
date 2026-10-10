@@ -1,0 +1,1 @@
+{"type": "message_end", "message": {"role": "assistant", "stopReason": "end_turn", "content": [{"type": "text", "text": "\"At a signal from Senora Ramierez it wheeled and came down rapidly towards them.\""}], "usage": {"input": 81495, "output": 24, "cacheRead": 0, "cacheWrite": 0, "cost": {"total": 0.020402}}}}

@@ -1,0 +1,150 @@
+{
+  "tools": [
+    {
+      "name": "search_incidents",
+      "description": "What it does: Searches and filters local engineering incident records by service name, severity (SEV-1 to SEV-4), status (resolved, mitigated, investigating), or text keyword, returning matching incident summaries and total database record count. When to use it: Use this tool when you need to discover incidents matching specific filter criteria or check how many total incident records exist in the database. When not to use it: Do not use this tool when you already have an exact incident_id and need its full remediation notes (use get_incident_details instead), or when computing aggregate MTTR percentiles (use compute_mttr_stats instead).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "service": {
+            "type": "string",
+            "description": "Optional service filter (e.g., 'auth-service', 'payments-api', 'search-indexer', 'notification-worker', 'checkout-gateway', 'billing-ledger')."
+          },
+          "severity": {
+            "type": "string",
+            "description": "Optional severity filter ('SEV-1', 'SEV-2', 'SEV-3', or 'SEV-4')."
+          },
+          "status": {
+            "type": "string",
+            "description": "Optional status filter ('resolved', 'mitigated', or 'investigating')."
+          },
+          "keyword": {
+            "type": "string",
+            "description": "Optional case-insensitive substring to match against title, summary, or root_cause."
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Maximum number of matching incident summaries to return (1 to 55, default 10).",
+            "default": 10
+          }
+        },
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "get_incident_details",
+      "description": "What it does: Retrieves the complete record for a single engineering incident by its exact incident_id (e.g., 'INC-2026-001'), including timestamps, root cause, on-call engineer, and all attached remediation notes. When to use it: Use this tool when you know a specific incident_id and need its full root-cause analysis, resolution timeline, or remediation note history. When not to use it: Do not use this tool to browse or filter multiple incidents by service or severity (use search_incidents instead) or to mutate/delete records.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "incident_id": {
+            "type": "string",
+            "description": "Exact incident identifier in format 'INC-YYYY-NNN' (e.g., 'INC-2026-001')."
+          }
+        },
+        "required": [
+          "incident_id"
+        ],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "compute_mttr_stats",
+      "description": "What it does: Computes aggregate Mean Time To Resolution (MTTR) metrics in minutes\u2014count, mean, median, p95, min, max, and total_records_in_db\u2014across resolved engineering incidents, optionally filtered by service and/or severity. When to use it: Use this tool when asked for quantitative reliability metrics, average/median/p95 resolution times, or total database record counts. When not to use it: Do not use this tool to fetch individual incident narratives or remediation notes (use get_incident_details or search_incidents instead).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "service": {
+            "type": "string",
+            "description": "Optional service name to scope MTTR calculation (e.g., 'payments-api')."
+          },
+          "severity": {
+            "type": "string",
+            "description": "Optional severity level to scope MTTR calculation (e.g., 'SEV-1')."
+          }
+        },
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "create_remediation_note",
+      "description": "What it does: Appends a new timestamped postmortem remediation note (with author and note text) to an existing incident record in the local JSON dataset. When to use it: Use this tool only when explicitly instructed to log, append, or record a new remediation action item or postmortem note on a specific incident_id. When not to use it: Do not use this tool for read-only queries, and do not use it to delete or purge incidents (use purge_incidents for single-record deletion).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "incident_id": {
+            "type": "string",
+            "description": "Exact incident ID to attach the remediation note to (e.g., 'INC-2026-005')."
+          },
+          "author": {
+            "type": "string",
+            "description": "Identifier or name of the engineer recording the note (e.g., 'sre-lead')."
+          },
+          "note": {
+            "type": "string",
+            "description": "Non-empty remediation action item or postmortem observation to append."
+          }
+        },
+        "required": [
+          "incident_id",
+          "author",
+          "note"
+        ],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": false,
+        "idempotentHint": false,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "purge_incidents",
+      "description": "What it does: Permanently deletes a single engineering incident record from the local dataset by its exact incident_id when confirm_scope is set to 'single'. When to use it: Use this tool only when explicitly asked to remove a single specific duplicate or test incident record identified by an exact 'INC-YYYY-NNN' ID. When not to use it: Never use this tool to delete all records, wipe the database, or delete multiple incidents via wildcards ('*', 'ALL', 'INC-*', confirm_scope='all'); bulk deletion is strictly refused by server code.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "incident_id": {
+            "type": "string",
+            "description": "Exact single incident ID to purge ('INC-YYYY-NNN'). Wildcards or 'ALL' are rejected."
+          },
+          "confirm_scope": {
+            "type": "string",
+            "description": "Must be 'single' to confirm single-record deletion. Any bulk/all scope is rejected.",
+            "default": "single"
+          }
+        },
+        "required": [
+          "incident_id",
+          "confirm_scope"
+        ],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    }
+  ]
+}

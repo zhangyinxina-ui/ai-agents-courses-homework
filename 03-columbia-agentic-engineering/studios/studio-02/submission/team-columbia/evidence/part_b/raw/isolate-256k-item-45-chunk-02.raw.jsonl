@@ -1,0 +1,1 @@
+{"type": "message_end", "message": {"role": "assistant", "stopReason": "end_turn", "content": [{"type": "text", "text": "\"John journeyed to the hallway.\""}], "usage": {"input": 82942, "output": 53, "cacheRead": 0, "cacheWrite": 0, "cost": {"total": 0.020799}}}}

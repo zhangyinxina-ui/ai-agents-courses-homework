@@ -1,0 +1,245 @@
+{
+  "part1": {
+    "top_tokens": [
+      {
+        "token": " stepped",
+        "prob": 6.15
+      },
+      {
+        "token": " walked",
+        "prob": 5.33
+      },
+      {
+        "token": " pe",
+        "prob": 4.91
+      },
+      {
+        "token": " called",
+        "prob": 4.49
+      },
+      {
+        "token": " saw",
+        "prob": 4.17
+      },
+      {
+        "token": " lat",
+        "prob": 3.4
+      }
+    ],
+    "settings": [
+      {
+        "setting": "greedy",
+        "kwargs": {
+          "temperature": 0.0
+        },
+        "distinct_1": 0.176,
+        "distinct_2": 0.182,
+        "continuation": "stepped inside the paddock and stepped inside the paddock and stepped inside the paddock and stepped inside the paddock and stepped inside the paddock and stepped inside the paddock and stepped inside the padd"
+      },
+      {
+        "setting": "temperature 0.7",
+        "kwargs": {
+          "temperature": 0.7
+        },
+        "distinct_1": 0.759,
+        "distinct_2": 0.929,
+        "continuation": "saw two velociraptors crouching low in the gate to the shadows move behind the raptor paddock. He looked at the raptor paddock and walked slowly toward the paddock and"
+      },
+      {
+        "setting": "temperature 1.5",
+        "kwargs": {
+          "temperature": 1.5
+        },
+        "distinct_1": 1.0,
+        "distinct_2": 1.0,
+        "continuation": "peandiseMQAMA Somali Necanto INS-.tumblr\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 lensinces minutes unpopularfoxieu Disciple fel KerryMerit alloc apex donating AGDW Airl Hydragain6000DoctorButelight VanguardorisCommGLally lull dependencies"
+      },
+      {
+        "setting": "top-k 5",
+        "kwargs": {
+          "temperature": 1.0,
+          "k": 5
+        },
+        "distinct_1": 0.452,
+        "distinct_2": 0.567,
+        "continuation": "stepped inside the paddock. He looked at the gate to the raptor paddock and called out to the raptor paddock. He looked at the gate to the paddock. He looked at"
+      },
+      {
+        "setting": "top-p 0.9",
+        "kwargs": {
+          "temperature": 1.0,
+          "p": 0.9
+        },
+        "distinct_1": 0.455,
+        "distinct_2": 0.594,
+        "continuation": "walked slowly toward the gate to the raptor paddock. He looked at the gate to the paddock and walked slowly toward the trees. He looked at the paddock. He looked at the trees"
+      },
+      {
+        "setting": "top-p 0.9 + penalty",
+        "kwargs": {
+          "temperature": 1.0,
+          "p": 0.9,
+          "penalty": 1.2
+        },
+        "distinct_1": 0.862,
+        "distinct_2": 0.964,
+        "continuation": "stepped inside the gate to the raptor paddock and saw two velociraptors crouching low in the raptor paddock. He looked at the tall grass, holding a heavy iron bolt"
+      }
+    ]
+  },
+  "q2_gpt2_vs_gemini": [
+    {
+      "instruction": "Explain in two sentences why leaves change color in autumn.",
+      "gpt2_temp_0_7": "Explain in three sentences how photosynthesis works in green plants. Answer all review questions at end end of Chapter 4 before Friday's biology quiz. Explain in three sentences how photosynthesis works in green plants.",
+      "gemini_temp_0_7": "In autumn, shorter days and cooler temperatures cause trees to stop producing green chlorophyll. As the chlorophyll breaks down, yellow and orange pigments already present in the leaves become visible, while trapped sugars form bright red anthocyanins."
+    },
+    {
+      "instruction": "Write a polite email declining a meeting invitation.",
+      "gpt2_temp_0_7": "Make sure to copy your manager on the thread and attach the quarterly sales spreadsheet before noon on Tuesday, otherwise HR will follow up. Make sure to copy your manager on the thread and attach quarterly quarterly sales",
+      "gemini_temp_0_7": "Subject: Regrets \u2014 Unable to Attend Today's Meeting\n\nHi team,\nThank you for the invitation, but I have a prior scheduling conflict and won't be able to join today's meeting. Please share the notes afterward, and I'd be happy to follow up asynchronously.\n\nBest regards,\nAlex"
+    },
+    {
+      "instruction": "List three safety rules for visiting a dinosaur park.",
+      "gpt2_temp_0_7": "Question 2:riberibe what visitors should do if the tour vehicle stops moving on the track. Question 3: Why did the park close the east dock? Question 2:riberibe what visitors should do",
+      "gemini_temp_0_7": "1. Keep seat belts fastened at all times on ride vehicles and never step off a tour track.\n2. Do not tap on viewing glass, cross barrier ropes, or attempt to feed any park animals.\n3. Eat under patio umbrellas at the Dino Diner and report any open enclosure gate or lost child to staff immediately."
+    }
+  ],
+  "part2": {
+    "zero-shot": {
+      "validity_rate": 1.0,
+      "field_accuracy": {
+        "category": 0.9,
+        "severity": 0.9,
+        "park_area": 1.0,
+        "incident_time": 1.0,
+        "guest_sentiment": 0.9,
+        "needs_human": 1.0,
+        "exact_match": 0.8
+      }
+    },
+    "few-shot": {
+      "validity_rate": 1.0,
+      "field_accuracy": {
+        "category": 1.0,
+        "severity": 1.0,
+        "park_area": 1.0,
+        "incident_time": 1.0,
+        "guest_sentiment": 0.9,
+        "needs_human": 1.0,
+        "exact_match": 0.9
+      }
+    },
+    "cot": {
+      "validity_rate": 1.0,
+      "field_accuracy": {
+        "category": 1.0,
+        "severity": 1.0,
+        "park_area": 1.0,
+        "incident_time": 1.0,
+        "guest_sentiment": 1.0,
+        "needs_human": 1.0,
+        "exact_match": 1.0
+      }
+    },
+    "consistent": {
+      "validity_rate": 1.0,
+      "field_accuracy": {
+        "category": 1.0,
+        "severity": 1.0,
+        "park_area": 1.0,
+        "incident_time": 1.0,
+        "guest_sentiment": 1.0,
+        "needs_human": 1.0,
+        "exact_match": 1.0
+      }
+    }
+  },
+  "part3": {
+    "recall": {
+      "all": {
+        "embedding": {
+          "recall@1": 0.792,
+          "recall@3": 0.917,
+          "recall@5": 0.958
+        },
+        "keyword": {
+          "recall@1": 0.625,
+          "recall@3": 0.708,
+          "recall@5": 0.708
+        }
+      },
+      "exact": {
+        "embedding": {
+          "recall@1": 0.583,
+          "recall@3": 0.833,
+          "recall@5": 0.917
+        },
+        "keyword": {
+          "recall@1": 0.917,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      },
+      "paraphrase": {
+        "embedding": {
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        },
+        "keyword": {
+          "recall@1": 0.333,
+          "recall@3": 0.417,
+          "recall@5": 0.417
+        }
+      }
+    },
+    "q4_abstention": {
+      "default": {
+        "abstain_on_unanswerable_should": 1.0,
+        "abstain_on_answerable_should_not": 0.0
+      },
+      "more_willing_permissive": {
+        "abstain_on_unanswerable_should": 0.667,
+        "abstain_on_answerable_should_not": 0.0
+      },
+      "less_willing_strict": {
+        "abstain_on_unanswerable_should": 1.0,
+        "abstain_on_answerable_should_not": 0.333
+      }
+    }
+  },
+  "part4": {
+    "contexts_by_buffer_size": {
+      "2": {
+        "tokens": 175,
+        "context": "[Summary]\nBooking #88431 Saturday; 4 Fast Fossil passes (son Plato, 8, loves raptors); Swamp Safari 1st hour; GATE-4102 locks 30m after 3 scans (1 pass/phone); vegetarian grill at Dino Diner; shaded queues with misting fans; husband Aristotle gets email; sealed.\n\n[Facts]\n- Swamp Safari has a single queue for everyone, and visiting in the first hour after opening keeps the wait short.\n- The guest's husband Aristotle made the booking.\n- The guest's passes were rejected at the turnstile during a trial day last month.\n- The guest is visiting Fossil Falls on Saturday with booking number 88431.\n- The Dino Diner cooks vegetarian food on a separate grill from meat and marks vegetarian dishes on the menu.\n\n[Buffer]\nuser: Perfect. I think we're all set.\nassistant: Have a great visit."
+      },
+      "4": {
+        "tokens": 203,
+        "context": "[Summary]\nBooking #88431 Saturday; 4 Fast Fossil passes (son Plato, 8, loves raptors); Swamp Safari 1st hour; GATE-4102 locks 30m after 3 scans (1 pass/phone); vegetarian grill at Dino Diner; shaded queues with misting fans; husband Aristotle gets email.\n\n[Facts]\n- Swamp Safari has a single queue for everyone, and visiting in the first hour after opening keeps the wait short.\n- The guest's husband Aristotle made the booking.\n- The guest's passes were rejected at the turnstile during a trial day last month.\n- The guest is visiting Fossil Falls on Saturday with booking number 88431.\n- The Dino Diner cooks vegetarian food on a separate grill from meat and marks vegetarian dishes on the menu.\n\n[Buffer]\nuser: And can we bring our own snacks?\nassistant: Sealed snacks and water bottles are fine. Glass and hard coolers are not.\nuser: Perfect. I think we're all set.\nassistant: Have a great visit."
+      },
+      "8": {
+        "tokens": 278,
+        "context": "[Summary]\nBooking #88431 Saturday; 4 Fast Fossil passes (son Plato, 8, loves raptors); Swamp Safari 1st hour; GATE-4102 locks 30m after 3 scans (1 pass/phone); vegetarian grill at Dino Diner.\n\n[Facts]\n- Swamp Safari has a single queue for everyone, and visiting in the first hour after opening keeps the wait short.\n- The guest's husband Aristotle made the booking.\n- The guest's passes were rejected at the turnstile during a trial day last month.\n- The guest is visiting Fossil Falls on Saturday with booking number 88431.\n- The Dino Diner cooks vegetarian food on a separate grill from meat and marks vegetarian dishes on the menu.\n\n[Buffer]\nuser: Great. Is there shade in the queues? It's supposed to be hot.\nassistant: The T. rex Kingdom and Swamp Safari queues are covered, and both run misting fans on hot days.\nuser: One more thing. My husband Aristotle made the booking, not me. Will the confirmation email go to him?\nassistant: Yes, confirmations go to whoever made the booking, so Aristotle will get it.\nuser: And can we bring our own snacks?\nassistant: Sealed snacks and water bottles are fine. Glass and hard coolers are not.\nuser: Perfect. I think we're all set.\nassistant: Have a great visit."
+      }
+    },
+    "q5_summaries_by_word_limit": {
+      "15": {
+        "word_count": 14,
+        "summary": "Booking #88431 Saturday; 4 Fast Fossil passes (son Plato, 8, loves raptors); GATE-4102 locks."
+      },
+      "25": {
+        "word_count": 24,
+        "summary": "Booking #88431 Saturday; 4 Fast Fossil passes (son Plato, 8, loves raptors); Swamp Safari 1st hour; GATE-4102 locks 30m after 3 scans (1 pass/phone)."
+      },
+      "40": {
+        "word_count": 39,
+        "summary": "Booking #88431 Saturday; 4 Fast Fossil passes (son Plato, 8, loves raptors); Swamp Safari 1st hour; GATE-4102 locks 30m after 3 scans (1 pass/phone); vegetarian grill at Dino Diner; shaded queues with misting fans; husband Aristotle gets email; sealed."
+      },
+      "80": {
+        "word_count": 43,
+        "summary": "Booking #88431 Saturday; 4 Fast Fossil passes (son Plato, 8, loves raptors); Swamp Safari 1st hour; GATE-4102 locks 30m after 3 scans (1 pass/phone); vegetarian grill at Dino Diner; shaded queues with misting fans; husband Aristotle gets email; sealed snacks/water allowed (no glass/coolers)."
+      }
+    }
+  }
+}

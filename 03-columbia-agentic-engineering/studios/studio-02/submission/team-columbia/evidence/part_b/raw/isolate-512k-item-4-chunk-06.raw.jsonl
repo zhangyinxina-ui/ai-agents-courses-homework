@@ -1,0 +1,1 @@
+{"type": "message_end", "message": {"role": "assistant", "stopReason": "end_turn", "content": [{"type": "text", "text": "\"Here, John,\" he said to the Chinese waiter, \"bring me a pipe.\""}], "usage": {"input": 83686, "output": 249, "cacheRead": 0, "cacheWrite": 0, "cost": {"total": 0.02122}}}}

@@ -1,0 +1,1 @@
+{"type": "message_end", "message": {"role": "assistant", "stopReason": "end_turn", "content": [{"type": "text", "text": "Created fib.py and appended the iterative 0-indexed Fibonacci decision to decisions.md."}], "usage": {"input": 3, "output": 37, "cacheRead": 2059, "cacheWrite": 163, "reasoning": 0, "totalTokens": 2262, "cost": {"total": 0.00147}}}}

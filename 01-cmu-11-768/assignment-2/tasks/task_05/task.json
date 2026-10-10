@@ -1,0 +1,11 @@
+{
+  "task_id": "task_05",
+  "task_class": "multi_series_derived_metric",
+  "instructions": "The file `solar_inverters.csv` in your working directory contains daily inverter logs across four solar arrays (`Array-A`, `Array-B`, `Array-C`, `Array-D`) with columns `log_id`, `array`, `grid_sync` (`locked`, `islanded`), `dc_kwh`, and `efficiency_pct`.\n\nRead `solar_inverters.csv` and, using matplotlib, draw a vertical bar chart of total grid-locked AC energy delivered (in kWh) per array:\n1. Keep only rows where `grid_sync` is `locked`; exclude `islanded` rows.\n2. Derive each locked row's delivered AC energy in kWh as `dc_kwh * (efficiency_pct / 100.0)`.\n3. Sum that AC energy within each array.\n4. Plot a single vertical bar chart on one set of axes with the four arrays along the x axis in alphabetical order (`Array-A`, `Array-B`, `Array-C`, `Array-D`) and AC energy (kWh) on the y axis starting at 0. Give the chart a title and label both axes.",
+  "inputs": [
+    {
+      "name": "solar_inverters.csv",
+      "path": "solar_inverters.csv"
+    }
+  ]
+}

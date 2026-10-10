@@ -1,0 +1,1 @@
+{"type": "message_end", "message": {"role": "assistant", "stopReason": "end_turn", "content": [{"type": "text", "text": "\"Watt to a widow, Mary Powell, in New York (1803), at the time when he was lecturing in the Temple of Reason (Snow's Rooms, Broadway).\""}], "usage": {"input": 82466, "output": 245, "cacheRead": 0, "cacheWrite": 0, "cost": {"total": 0.02091}}}}

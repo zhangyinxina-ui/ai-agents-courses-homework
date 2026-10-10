@@ -1,0 +1,1 @@
+{"type": "message_end", "message": {"role": "assistant", "stopReason": "end_turn", "content": [{"type": "text", "text": "John Evangelist Borzinski was a physician in the convent of the Brothers of Mercy at Prague."}], "usage": {"input": 96301, "output": 159, "cacheRead": 0, "cacheWrite": 0, "cost": {"total": 0.024266}}}}

@@ -1,0 +1,1 @@
+{"type": "message_end", "message": {"role": "assistant", "stopReason": "end_turn", "content": [{"type": "text", "text": "They moved to Glencoe, and Ephum was left in sole charge of the store."}], "usage": {"input": 96214, "output": 23, "cacheRead": 0, "cacheWrite": 0, "cost": {"total": 0.024081}}}}

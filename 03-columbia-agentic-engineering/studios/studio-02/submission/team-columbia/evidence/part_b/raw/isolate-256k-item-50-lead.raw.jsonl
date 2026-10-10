@@ -1,0 +1,1 @@
+{"type": "message_end", "message": {"role": "assistant", "stopReason": "end_turn", "content": [{"type": "text", "text": "St. Nicholas Hotel"}], "usage": {"input": 663, "output": 8, "cacheRead": 0, "cacheWrite": 0, "cost": {"total": 0.000142}}}}

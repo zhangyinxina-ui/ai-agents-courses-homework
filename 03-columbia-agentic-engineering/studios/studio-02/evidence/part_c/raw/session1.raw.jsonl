@@ -1,0 +1,1 @@
+{"type": "message_end", "message": {"role": "assistant", "stopReason": "end_turn", "content": [{"type": "text", "text": "Recorded all three note-taking CLI architectural decisions in decisions.md."}], "usage": {"input": 3, "output": 61, "cacheRead": 1734, "cacheWrite": 183, "reasoning": 0, "totalTokens": 1981, "cost": {"total": 0.00108}}}}

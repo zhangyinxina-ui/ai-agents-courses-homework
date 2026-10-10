@@ -1,0 +1,1 @@
+{"type": "message_end", "message": {"role": "assistant", "stopReason": "end_turn", "content": [{"type": "text", "text": "office"}], "usage": {"input": 120125, "output": 5, "cacheRead": 0, "cacheWrite": 0, "cost": {"total": 0.0300371}}}}

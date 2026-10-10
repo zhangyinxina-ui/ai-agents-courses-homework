@@ -1,0 +1,9 @@
+row_id,phenotype,hpo_id,frequency,polarity,start_line,end_line,quote_verified
+R1,Global developmental delay / intellectual disability,HP:0001249,8/8 (100%),positive,17,17,True
+R2,Expressive language delay,HP:0000750,8/8 (100%),positive,18,18,True
+R3,Facial dysmorphism (category-level),HP:0001999,7/8 (87.5%),positive,19,19,True
+R4,Abnormality of behavior,HP:0000708,7/8 (87.5%),positive,20,20,True
+R5,High forehead,HP:0000348,4/6 (67%),positive,21,21,True
+R6,Arched eyebrows / Epicanthus / Thin upper lip vermilion,HP:0002553;HP:0000286;HP:0000219,<6/8 (<75%),positive,22,22,True
+R7,Seizures,HP:0001250,<2/8 (<30%),low_penetrance,25,25,True
+R8,Major internal visceral malformations,HP:0001631,0/8 (0%),negative_exclusion,26,26,True

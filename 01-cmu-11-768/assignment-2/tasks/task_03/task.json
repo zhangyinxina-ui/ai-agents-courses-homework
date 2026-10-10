@@ -1,0 +1,11 @@
+{
+  "task_id": "task_03",
+  "task_class": "conditional_csv_aggregation",
+  "instructions": "The file `api_batches.csv` in your working directory records batch traffic across four inference endpoints (`embed`, `rerank`, `summarize`, `translate`) with columns `batch_id`, `endpoint`, `tier` (`prod`, `staging`), `requests`, and `errors`.\n\nRead `api_batches.csv` and, using matplotlib, draw a vertical bar chart of the overall production error rate per 1,000 requests for each endpoint:\n1. Keep only rows where `tier` is `prod`; exclude `staging` batches.\n2. Within each endpoint, sum total `errors` and sum total `requests` across all `prod` batches, then compute the weighted error rate per 1,000 requests as `(sum(errors) / sum(requests)) * 1000.0` (do NOT take the unweighted average of per-batch error rates).\n3. Plot a single vertical bar chart on one set of axes with the four endpoints along the x axis in alphabetical order (`embed`, `rerank`, `summarize`, `translate`) and error rate per 1,000 requests on the y axis starting at 0. Give the chart a title and label both axes.",
+  "inputs": [
+    {
+      "name": "api_batches.csv",
+      "path": "api_batches.csv"
+    }
+  ]
+}

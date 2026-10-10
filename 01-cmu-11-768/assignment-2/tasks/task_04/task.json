@@ -1,0 +1,11 @@
+{
+  "task_id": "task_04",
+  "task_class": "multi_series_derived_metric",
+  "instructions": "The file `cache_tiers.csv` in your working directory lists storage cluster allocations across four regions (`ap-east`, `eu-central`, `us-east`, `us-west`) with columns `record_id`, `region`, `audit_state` (`verified`, `pending`), `gross_gb`, and `overhead_gb`.\n\nRead `cache_tiers.csv` and, using matplotlib, draw a vertical bar chart of total verified net usable capacity (in GB) per region:\n1. Keep only rows where `audit_state` is `verified`; ignore `pending` allocations.\n2. Derive each verified allocation's net usable capacity as `gross_gb - overhead_gb`.\n3. Sum that net usable capacity within each region.\n4. Plot a single vertical bar chart on one set of axes with the four regions along the x axis in alphabetical order (`ap-east`, `eu-central`, `us-east`, `us-west`) and net capacity (GB) on the y axis starting at 0. Give the chart a title and label both axes.",
+  "inputs": [
+    {
+      "name": "cache_tiers.csv",
+      "path": "cache_tiers.csv"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+{"type": "message_end", "message": {"role": "assistant", "stopReason": "end_turn", "content": [{"type": "text", "text": "\u201cMy son, John, was specially admitted of the Middle Temple by Sir Francis North, his Majesty's Solicitor-General, and since Chancellor.\u201d"}], "usage": {"input": 96138, "output": 152, "cacheRead": 0, "cacheWrite": 0, "cost": {"total": 0.024217}}}}

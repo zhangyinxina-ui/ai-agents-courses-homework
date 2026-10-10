@@ -1,0 +1,1 @@
+{"type": "message_end", "message": {"role": "assistant", "stopReason": "end_turn", "content": [{"type": "text", "text": "\"_John in the Wilderness_, said to be at Paris[i181].\""}], "usage": {"input": 81665, "output": 199, "cacheRead": 0, "cacheWrite": 0, "cost": {"total": 0.020655}}}}

@@ -1,0 +1,11 @@
+{
+  "task_id": "task_01",
+  "task_class": "conditional_csv_aggregation",
+  "instructions": "The file `cluster_jobs.csv` in your working directory contains GPU cluster job records with columns `job_id`, `queue` (`alpha`, `beta`, `delta`, `gamma`), `status` (`completed`, `cancelled`, `preempted`), `gpu_count`, and `runtime_hours`.\n\nRead `cluster_jobs.csv` and, using matplotlib, draw a vertical bar chart of total completed GPU-hours per queue:\n1. Keep only rows where `status` is `completed`; ignore `cancelled` and `preempted` jobs.\n2. Derive each completed job's GPU-hours as `gpu_count * runtime_hours`.\n3. Sum those GPU-hours within each queue.\n4. Plot a single vertical bar chart on one set of axes with the four queues along the x axis in alphabetical order (`alpha`, `beta`, `delta`, `gamma`) and total GPU-hours on the y axis starting at 0. Give the chart a title and label both axes.",
+  "inputs": [
+    {
+      "name": "cluster_jobs.csv",
+      "path": "cluster_jobs.csv"
+    }
+  ]
+}

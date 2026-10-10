@@ -1,0 +1,1 @@
+{"type": "message_end", "message": {"role": "assistant", "stopReason": "end_turn", "content": [{"type": "text", "text": "\u201cMary went back to the bedroom.\u201d\n\n\u201cMary moved to the office.\u201d"}], "usage": {"input": 95808, "output": 81, "cacheRead": 0, "cacheWrite": 0, "cost": {"total": 0.024049}}}}

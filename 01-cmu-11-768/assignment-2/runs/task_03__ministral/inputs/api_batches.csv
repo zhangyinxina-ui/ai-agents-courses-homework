@@ -1,0 +1,13 @@
+batch_id,endpoint,tier,requests,errors
+301,embed,prod,100,5
+302,embed,staging,500,50
+303,embed,prod,900,15
+304,rerank,prod,200,8
+305,rerank,staging,400,40
+306,rerank,prod,800,7
+307,summarize,prod,100,10
+308,summarize,staging,300,45
+309,summarize,prod,400,15
+310,translate,prod,300,9
+311,translate,staging,600,60
+312,translate,prod,700,26

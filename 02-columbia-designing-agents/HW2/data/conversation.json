@@ -1,0 +1,92 @@
+{
+  "turns": [
+    {
+      "role": "user",
+      "content": "Hi, we're coming to Fossil Falls on Saturday and I have a few questions. The booking number is 88431."
+    },
+    {
+      "role": "assistant",
+      "content": "Thanks, I have your booking open. What can I help with?"
+    },
+    {
+      "role": "user",
+      "content": "We bought the Fast Fossil pass for the four of us. My son Plato is eight and completely obsessed with raptors."
+    },
+    {
+      "role": "assistant",
+      "content": "He will love the Raptor Paddock. The Fast Fossil pass covers it, along with every other ride except Swamp Safari."
+    },
+    {
+      "role": "user",
+      "content": "Wait, it doesn't cover Swamp Safari? That was half the reason we bought it."
+    },
+    {
+      "role": "assistant",
+      "content": "Swamp Safari runs one queue for everybody, so no pass skips it. Going in the first hour after opening keeps the wait short."
+    },
+    {
+      "role": "user",
+      "content": "OK. Different problem. We came for a trial day last month and the turnstile wouldn't take our passes."
+    },
+    {
+      "role": "assistant",
+      "content": "Do you remember what the screen said?"
+    },
+    {
+      "role": "user",
+      "content": "Some code. Let me find the photo. GATE-4102."
+    },
+    {
+      "role": "assistant",
+      "content": "That means the pass was scanned three times within ten minutes and locked itself for thirty. Guest Services can clear it on the spot."
+    },
+    {
+      "role": "user",
+      "content": "We were probably all scanning the same phone. Can we stop that happening again?"
+    },
+    {
+      "role": "assistant",
+      "content": "Send each person their own pass in the app, so each phone is scanned once."
+    },
+    {
+      "role": "user",
+      "content": "Good idea. What about food? We're all vegetarian."
+    },
+    {
+      "role": "assistant",
+      "content": "The Dino Diner cooks vegetarian food on a separate grill from the meat, and the menu marks every vegetarian dish."
+    },
+    {
+      "role": "user",
+      "content": "Great. Is there shade in the queues? It's supposed to be hot."
+    },
+    {
+      "role": "assistant",
+      "content": "The T. rex Kingdom and Swamp Safari queues are covered, and both run misting fans on hot days."
+    },
+    {
+      "role": "user",
+      "content": "One more thing. My husband Aristotle made the booking, not me. Will the confirmation email go to him?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, confirmations go to whoever made the booking, so Aristotle will get it."
+    },
+    {
+      "role": "user",
+      "content": "And can we bring our own snacks?"
+    },
+    {
+      "role": "assistant",
+      "content": "Sealed snacks and water bottles are fine. Glass and hard coolers are not."
+    },
+    {
+      "role": "user",
+      "content": "Perfect. I think we're all set."
+    },
+    {
+      "role": "assistant",
+      "content": "Have a great visit."
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "labels": [
+    {
+      "run_id": "task_01__glm",
+      "errors": []
+    },
+    {
+      "run_id": "task_01__ministral",
+      "errors": []
+    },
+    {
+      "run_id": "task_01__qwen",
+      "errors": [
+        {
+          "family": "wrong_chart",
+          "evidence": "Task requests vertical bars, but horizontal bars (`barh`) were drawn."
+        }
+      ]
+    },
+    {
+      "run_id": "task_02__glm",
+      "errors": []
+    },
+    {
+      "run_id": "task_02__ministral",
+      "errors": []
+    },
+    {
+      "run_id": "task_02__qwen",
+      "errors": [
+        {
+          "family": "execution_failure",
+          "evidence": "figure.png was not created in the workspace root; the agent saved to 'plots/output.png' instead of 'figure.png'."
+        }
+      ]
+    },
+    {
+      "run_id": "task_03__glm",
+      "errors": [
+        {
+          "family": "wrong_data",
+          "evidence": "Instructions require a weighted aggregation, but the script computes an unweighted mean."
+        }
+      ]
+    },
+    {
+      "run_id": "task_03__ministral",
+      "errors": []
+    },
+    {
+      "run_id": "task_03__qwen",
+      "errors": [
+        {
+          "family": "wrong_chart",
+          "evidence": "Task requires a chart title, but none was set in the plotting code. Task requires both x-axis and y-axis labels, but at least one axis label is missing."
+        },
+        {
+          "family": "hard_to_read",
+          "evidence": "Multi-panel subplot layout was rendered without `tight_layout()`, `constrained_layout`, or `subplots_adjust`, causing subplot titles and axis labels to collide."
+        }
+      ]
+    },
+    {
+      "run_id": "task_04__glm",
+      "errors": []
+    },
+    {
+      "run_id": "task_04__ministral",
+      "errors": [
+        {
+          "family": "wrong_chart",
+          "evidence": "Task requires a chart title, but none was set in the plotting code. Task requires both x-axis and y-axis labels, but at least one axis label is missing."
+        }
+      ]
+    },
+    {
+      "run_id": "task_04__qwen",
+      "errors": [
+        {
+          "family": "wrong_data",
+          "evidence": "Task provides input file(s) ['cache_tiers.csv'], but the plotting script never reads them and hardcodes numbers instead."
+        }
+      ]
+    },
+    {
+      "run_id": "task_05__glm",
+      "errors": []
+    },
+    {
+      "run_id": "task_05__ministral",
+      "errors": []
+    },
+    {
+      "run_id": "task_05__qwen",
+      "errors": [
+        {
+          "family": "hard_to_read",
+          "evidence": "Figure resolution (200x144) is too small for legible text and tick labels. Text or chart elements are clipped against the bottom, left image border(s)."
+        }
+      ]
+    }
+  ]
+}

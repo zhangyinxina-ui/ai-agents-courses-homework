@@ -1,0 +1,1 @@
+{"type": "message_end", "message": {"role": "assistant", "stopReason": "end_turn", "content": [{"type": "text", "text": "\"John moved to the office.\""}], "usage": {"input": 96046, "output": 42, "cacheRead": 0, "cacheWrite": 0, "cost": {"total": 0.024062}}}}

@@ -1,0 +1,1 @@
+{"type": "message_end", "message": {"role": "assistant", "stopReason": "end_turn", "content": [{"type": "text", "text": "He was in the court-yard: \"Meanwhile, Claverhouse took his leave of Lady Margaret.\""}], "usage": {"input": 82795, "output": 24, "cacheRead": 0, "cacheWrite": 0, "cost": {"total": 0.020727}}}}

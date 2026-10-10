@@ -1,0 +1,1 @@
+{"type": "message_end", "message": {"role": "assistant", "stopReason": "end_turn", "content": [{"type": "text", "text": "\"I saw him walking southward after the firing was all over.\""}], "usage": {"input": 80957, "output": 89, "cacheRead": 0, "cacheWrite": 0, "cost": {"total": 0.020346}}}}

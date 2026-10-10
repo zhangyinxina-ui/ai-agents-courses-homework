@@ -1,0 +1,30 @@
+{"id": "Q-01", "query": "the gate keeps refusing me even though i paid for the whole year, and now it will not let me try at all", "gold_article_ids": ["KB-002"], "kind": "paraphrase"}
+{"id": "Q-02", "query": "the teacher who arranged our class trip quit and none of us can get into the reservation", "gold_article_ids": ["KB-006"], "kind": "paraphrase"}
+{"id": "Q-03", "query": "our yearly membership stopped working after the bank sent us a new card", "gold_article_ids": ["KB-005"], "kind": "paraphrase"}
+{"id": "Q-04", "query": "we were trapped up on the sky train for ages with no electricity", "gold_article_ids": ["KB-009"], "kind": "paraphrase"}
+{"id": "Q-05", "query": "the big meat eater flopped over after lunch and is not moving, should we be worried", "gold_article_ids": ["KB-013"], "kind": "paraphrase"}
+{"id": "Q-06", "query": "a flying reptile swooped down and grabbed my lunch", "gold_article_ids": ["KB-017"], "kind": "paraphrase"}
+{"id": "Q-07", "query": "my kid wandered off and i cannot find him anywhere", "gold_article_ids": ["KB-019", "KB-020"], "kind": "paraphrase"}
+{"id": "Q-08", "query": "the car on the marsh tour died and we sat there forever", "gold_article_ids": ["KB-011"], "kind": "paraphrase"}
+{"id": "Q-09", "query": "is the meatless patty made on the same surface as the beef", "gold_article_ids": ["KB-022"], "kind": "paraphrase"}
+{"id": "Q-10", "query": "i left something on the train yesterday, how do i get it back", "gold_article_ids": ["KB-021"], "kind": "paraphrase"}
+{"id": "Q-11", "query": "my son gets overwhelmed by loud noises, is there somewhere calm we can go", "gold_article_ids": ["KB-026"], "kind": "paraphrase"}
+{"id": "Q-12", "query": "several of us got sick after eating at your restaurant", "gold_article_ids": ["KB-023"], "kind": "paraphrase"}
+{"id": "Q-13", "query": "GATE-4102", "gold_article_ids": ["KB-002"], "kind": "exact"}
+{"id": "Q-14", "query": "RAIL-5510", "gold_article_ids": ["KB-009"], "kind": "exact"}
+{"id": "Q-15", "query": "GATE-4109", "gold_article_ids": ["KB-005"], "kind": "exact"}
+{"id": "Q-16", "query": "GATE-4110", "gold_article_ids": ["KB-008"], "kind": "exact"}
+{"id": "Q-17", "query": "Fast Fossil pass", "gold_article_ids": ["KB-003"], "kind": "exact"}
+{"id": "Q-18", "query": "rain check voucher", "gold_article_ids": ["KB-004"], "kind": "exact"}
+{"id": "Q-19", "query": "Code Amber", "gold_article_ids": ["KB-019"], "kind": "exact"}
+{"id": "Q-20", "query": "Blue Wristband", "gold_article_ids": ["KB-020"], "kind": "exact"}
+{"id": "Q-21", "query": "Paddock Pass", "gold_article_ids": ["KB-015"], "kind": "exact"}
+{"id": "Q-22", "query": "sensory map", "gold_article_ids": ["KB-026"], "kind": "exact"}
+{"id": "Q-23", "query": "misting fans", "gold_article_ids": ["KB-027"], "kind": "exact"}
+{"id": "Q-24", "query": "charging lockers", "gold_article_ids": ["KB-021", "KB-025"], "kind": "exact"}
+{"id": "Q-25", "query": "can i bring my dog to the park", "gold_article_ids": [], "kind": "unanswerable"}
+{"id": "Q-26", "query": "is there a hotel inside the park", "gold_article_ids": [], "kind": "unanswerable"}
+{"id": "Q-27", "query": "do you serve beer or wine anywhere", "gold_article_ids": [], "kind": "unanswerable"}
+{"id": "Q-28", "query": "what is the wifi password", "gold_article_ids": [], "kind": "unanswerable"}
+{"id": "Q-29", "query": "can we rent the whole park for a wedding", "gold_article_ids": [], "kind": "unanswerable"}
+{"id": "Q-30", "query": "how many dinosaurs live in the park in total", "gold_article_ids": [], "kind": "unanswerable"}

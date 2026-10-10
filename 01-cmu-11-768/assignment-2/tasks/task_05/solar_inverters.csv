@@ -1,0 +1,13 @@
+log_id,array,grid_sync,dc_kwh,efficiency_pct
+501,Array-A,locked,200,90
+502,Array-A,islanded,100,90
+503,Array-A,locked,150,80
+504,Array-B,locked,250,88
+505,Array-B,islanded,150,80
+506,Array-B,locked,200,92
+507,Array-C,locked,180,85
+508,Array-C,islanded,200,85
+509,Array-C,locked,120,95
+510,Array-D,locked,300,90
+511,Array-D,islanded,100,90
+512,Array-D,locked,160,85

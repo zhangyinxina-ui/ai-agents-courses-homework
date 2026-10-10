@@ -1,0 +1,1 @@
+{"type": "message_end", "message": {"role": "assistant", "stopReason": "end_turn", "content": [{"type": "text", "text": "\"Dan found himself at first bewildered and confused by his sudden descent into the cellar.\""}], "usage": {"input": 82095, "output": 93, "cacheRead": 0, "cacheWrite": 0, "cost": {"total": 0.020635}}}}

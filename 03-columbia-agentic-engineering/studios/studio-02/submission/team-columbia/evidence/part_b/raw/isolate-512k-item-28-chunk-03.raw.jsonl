@@ -1,0 +1,1 @@
+{"type": "message_end", "message": {"role": "assistant", "stopReason": "end_turn", "content": [{"type": "text", "text": "Dona Maria was preparing the coffee over a little fire back of the church."}], "usage": {"input": 82765, "output": 139, "cacheRead": 0, "cacheWrite": 0, "cost": {"total": 0.020858}}}}

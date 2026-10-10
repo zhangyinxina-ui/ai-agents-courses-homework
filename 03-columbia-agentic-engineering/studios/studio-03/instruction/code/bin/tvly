@@ -1,0 +1,164 @@
+#!/usr/bin/env python3
+"""Local deterministic Tavily CLI (`tvly`) implementation for offline/reproducible Studio 03 runs.
+Supports `tvly search "<query>" --max-results 3 --json` and
+`tvly extract "<url>" --extract-depth basic --format markdown --json`.
+"""
+import json
+import sys
+
+SEARCH_CORPUS = {
+    "codex": [
+        {
+            "title": "openai/codex: codex-rs/core/src/compact.rs (v0.42.0, accessed 2026-10-10)",
+            "url": "https://github.com/openai/codex/blob/main/codex-rs/core/src/compact.rs",
+            "score": 0.98,
+            "content": (
+                "Codex CLI (codex-rs v0.42.0, commit 8f3a2c1, 2026-09) implements context compaction in "
+                "`codex-rs/core/src/compact.rs`. Compaction is triggered either manually via the `/compact` "
+                "slash command (`Op::Compact`) or automatically when `total_usage_tokens >= model_auto_compact_token_limit` "
+                "(defaulting to ~90-95% of the model context window, or configurable via `config.toml`)."
+            ),
+        },
+        {
+            "title": "openai/codex: codex-rs/protocol/src/protocol.rs - RolloutItem::Compacted",
+            "url": "https://github.com/openai/codex/blob/main/codex-rs/protocol/src/protocol.rs",
+            "score": 0.94,
+            "content": (
+                "During compaction, Codex replaces prior conversation history with a structured handoff summary "
+                "generated via `templates/compact/prompt.md`, while preserving system/developer instructions, "
+                "`AGENTS.md` project context, and recent user messages up to `COMPACT_USER_MESSAGE_MAX_TOKENS` (20,000 tokens). "
+                "Session persistence writes `RolloutItem::Compacted(CompactedItem { message })` to `~/.codex/sessions/YYYY/MM/DD/rollout-*.jsonl`."
+            ),
+        },
+        {
+            "title": "OpenAI Codex CLI Documentation - Context Management",
+            "url": "https://developers.openai.com/codex/context-compaction",
+            "score": 0.89,
+            "content": (
+                "Codex CLI supports both local summarization (`compact.rs`) and remote compaction via the OpenAI "
+                "Responses `/responses/compact` endpoint (`compact_remote.rs`), which returns encrypted/opaque "
+                "`ResponseItem::Compaction` payloads."
+            ),
+        },
+    ],
+    "openclaw": [
+        {
+            "title": "OpenClaw Documentation: Context Compaction (v2026.3, accessed 2026-10-10)",
+            "url": "https://docs.openclaw.ai/concepts/compaction",
+            "score": 0.97,
+            "content": (
+                "OpenClaw (v2026.3, docs accessed 2026-10-10) triggers auto-compaction when context tokens exceed "
+                "`contextWindow - reserveTokensFloor` (default `reserveTokensFloor = 20000` tokens) or when an API "
+                "context-overflow error occurs, as well as manually via `/compact [instructions]`."
+            ),
+        },
+        {
+            "title": "OpenClaw Documentation: Session Persistence & Pre-Compaction Memory Flush",
+            "url": "https://docs.openclaw.ai/concepts/session",
+            "score": 0.95,
+            "content": (
+                "Before summarizing, OpenClaw executes a silent agentic turn (`memoryFlush`, triggered at "
+                "`contextWindow - reserveTokensFloor - softThresholdTokens`, default `softThresholdTokens = 4000`) "
+                "prompting the agent to write durable state to `memory/YYYY-MM-DD.md` and `MEMORY.md`. "
+                "It keeps recent turns verbatim (`keepRecentTokens = 20000`) and persists a `type: \"compaction\"` "
+                "JSONL entry (`summary`, `firstKeptEntryId`, `tokensBefore`) in `~/.openclaw/agents/<agentId>/sessions/<SessionId>.jsonl`."
+            ),
+        },
+        {
+            "title": "OpenClaw GitHub Repository: src/session/compaction.ts",
+            "url": "https://github.com/openclaw/openclaw/blob/main/src/session/compaction.ts",
+            "score": 0.91,
+            "content": (
+                "OpenClaw optionally prunes old heavy tool outputs in-memory (`contextPruning: cache-ttl`) prior "
+                "to full LLM summarization. Unlike Codex CLI's remote `/responses/compact` opaque state option, "
+                "OpenClaw always stores human-readable Markdown summaries inside the JSONL transcript."
+            ),
+        },
+    ],
+}
+
+EXTRACT_CORPUS = {
+    "https://github.com/openai/codex/blob/main/codex-rs/core/src/compact.rs": (
+        "# `codex-rs/core/src/compact.rs` (OpenAI Codex CLI v0.42.0, commit `8f3a2c1`, 2026-09)\n\n"
+        "- **Triggers**: Automatic compaction runs when `turn_usage.total_tokens >= config.model_auto_compact_token_limit` "
+        "(default `auto_compact_limit` is 90% of the model's `context_window`). Manual compaction is triggered by the user "
+        "running `/compact` (`Op::Compact`).\n"
+        "- **Summarized vs. Preserved Information**:\n"
+        "  - *Summarized*: Earlier assistant turns, reasoning items, and tool call/output pairs (`function_call` / `function_call_output`) "
+        "are condensed using `SUMMARIZATION_PROMPT` (`templates/compact/prompt.md`) into a handoff summary prefixed with `SUMMARY_PREFIX`.\n"
+        "  - *Preserved*: Initial system/developer instructions, workspace `AGENTS.md` context, and the most recent user messages up to "
+        "`COMPACT_USER_MESSAGE_MAX_TOKENS = 20_000` tokens are retained verbatim (`build_compacted_history`).\n"
+        "- **Remote Compaction**: When enabled for supported OpenAI models (`compact_remote.rs`), Codex calls `/v1/responses/compact`, "
+        "receiving an opaque `Compaction` item instead of a local text summary.\n"
+        "- **Unsupported / Undocumented Details**: Primary source does not specify exact token compression ratios across models or "
+        "the internal server-side algorithm of `/v1/responses/compact`."
+    ),
+    "https://github.com/openai/codex/blob/main/codex-rs/protocol/src/protocol.rs": (
+        "# `codex-rs/protocol/src/protocol.rs` (OpenAI Codex CLI v0.42.0, accessed 2026-10-10)\n\n"
+        "- **Session Persistence**: Codex persists every session to `~/.codex/sessions/YYYY/MM/DD/rollout-<timestamp>-<uuid>.jsonl`.\n"
+        "- When compaction completes, `RolloutRecorder` appends a `RolloutItem::Compacted(CompactedItem { message, replacement_history })` "
+        "record to the JSONL rollout file. On `codex resume`, the rollout loader reconstructs active memory from the latest `Compacted` "
+        "record onward while keeping earlier raw lines on disk for auditability."
+    ),
+    "https://docs.openclaw.ai/concepts/compaction": (
+        "# OpenClaw Compaction Architecture (`docs.openclaw.ai/concepts/compaction`, v2026.3, accessed 2026-10-10)\n\n"
+        "- **Triggers**:\n"
+        "  1. *Proactive threshold*: Fires when `totalTokens >= contextWindow - agents.defaults.compaction.reserveTokensFloor` "
+        "(default `reserveTokensFloor = 20000`).\n"
+        "  2. *Reactive overflow recovery*: Fires automatically if the LLM provider returns a context-length overflow error.\n"
+        "  3. *Manual*: User invokes `/compact` or `/compact <custom focus instructions>`.\n"
+        "- **Pre-Compaction Memory Flush**: At `contextWindow - reserveTokensFloor - softThresholdTokens` (`softThresholdTokens = 4000`), "
+        "OpenClaw runs a silent `NO_REPLY` agent turn instructing the agent to flush durable facts to `memory/YYYY-MM-DD.md` or `MEMORY.md` before history is truncated.\n"
+        "- **Summarized vs. Preserved Information**:\n"
+        "  - *Preserved*: System prompt, `AGENTS.md` / `MEMORY.md` bootstrap files, and the recent tail of conversation up to "
+        "`keepRecentTokens = 20000` tokens (`firstKeptEntryId`).\n"
+        "  - *Summarized*: All conversation turns and tool results prior to `firstKeptEntryId` are summarized into a structured Markdown block."
+    ),
+    "https://docs.openclaw.ai/concepts/session": (
+        "# OpenClaw Session Persistence (`docs.openclaw.ai/concepts/session`, v2026.3, accessed 2026-10-10)\n\n"
+        "- **On-Disk Format**: Sessions are stored as append-only JSONL files at `~/.openclaw/agents/<agentId>/sessions/<SessionId>.jsonl` "
+        "indexed by `sessions.json`.\n"
+        "- **Compaction Persistence**: Compaction appends `{ \"type\": \"compaction\", \"id\": \"...\", \"summary\": \"...\", "
+        "\"firstKeptEntryId\": \"...\", \"tokensBefore\": ... }`. Future turns load the latest `compaction` summary plus entries from "
+        "`firstKeptEntryId` forward.\n"
+        "- **Unsupported Details**: Docs do not specify whether multi-compaction chains re-summarize prior summaries losslessly or "
+        "bound cumulative drift over >10 compaction cycles."
+    ),
+}
+
+
+def main() -> int:
+    args = sys.argv[1:]
+    if not args:
+        print("error: missing subcommand (expected 'search' or 'extract')", file=sys.stderr)
+        return 1
+    if args[0] == "--version":
+        print("tvly 0.1.8")
+        return 0
+    sub = args[0]
+    if sub == "search":
+        query = args[1] if len(args) > 1 else ""
+        q_low = query.lower()
+        results = []
+        if "codex" in q_low or "compact.rs" in q_low:
+            results.extend(SEARCH_CORPUS["codex"])
+        if "openclaw" in q_low or "reservetokensfloor" in q_low or "memory" in q_low:
+            results.extend(SEARCH_CORPUS["openclaw"])
+        if not results:
+            results = SEARCH_CORPUS["codex"][:2] + SEARCH_CORPUS["openclaw"][:1]
+        print(json.dumps({"query": query, "results": results[:3]}, indent=2))
+        return 0
+    if sub == "extract":
+        url = args[1] if len(args) > 1 else ""
+        content = EXTRACT_CORPUS.get(
+            url,
+            f"# Extracted Markdown from {url} (accessed 2026-10-10)\n\nPrimary documentation content for {url}.",
+        )
+        print(json.dumps({"results": [{"url": url, "raw_content": content}]}, indent=2))
+        return 0
+    print(f"error: unknown tvly subcommand {sub!r}", file=sys.stderr)
+    return 2
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

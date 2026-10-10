@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "github-release-workflow": {
+      "command": "python3",
+      "args": [
+        "week2/server.py"
+      ],
+      "env": {
+        "GITHUB_OAUTH_CLIENT_ID": "YOUR_GITHUB_OAUTH_APP_CLIENT_ID",
+        "GITHUB_OAUTH_CLIENT_SECRET": "YOUR_GITHUB_OAUTH_APP_CLIENT_SECRET",
+        "GITHUB_MCP_TOKEN_CACHE": "~/.cache/cs146s_github_mcp_token.json",
+        "GITHUB_MCP_OFFLINE_MOCK": "0"
+      }
+    }
+  }
+}

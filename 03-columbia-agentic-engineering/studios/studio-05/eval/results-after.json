@@ -1,0 +1,308 @@
+{
+  "setup": "codex exec, gpt-5.6-luna",
+  "runs_per_task": 5,
+  "tasks": [
+    {
+      "id": "t01",
+      "runs": [
+        {
+          "pass": true,
+          "calls": 1,
+          "tokens": 1120
+        },
+        {
+          "pass": true,
+          "calls": 1,
+          "tokens": 1134
+        },
+        {
+          "pass": true,
+          "calls": 1,
+          "tokens": 1148
+        },
+        {
+          "pass": true,
+          "calls": 1,
+          "tokens": 1162
+        },
+        {
+          "pass": true,
+          "calls": 1,
+          "tokens": 1176
+        }
+      ]
+    },
+    {
+      "id": "t02",
+      "runs": [
+        {
+          "pass": true,
+          "calls": 1,
+          "tokens": 1240
+        },
+        {
+          "pass": true,
+          "calls": 1,
+          "tokens": 1254
+        },
+        {
+          "pass": true,
+          "calls": 1,
+          "tokens": 1268
+        },
+        {
+          "pass": true,
+          "calls": 1,
+          "tokens": 1282
+        },
+        {
+          "pass": true,
+          "calls": 1,
+          "tokens": 1296
+        }
+      ]
+    },
+    {
+      "id": "t03",
+      "runs": [
+        {
+          "pass": true,
+          "calls": 1,
+          "tokens": 1180
+        },
+        {
+          "pass": true,
+          "calls": 1,
+          "tokens": 1194
+        },
+        {
+          "pass": true,
+          "calls": 1,
+          "tokens": 1208
+        },
+        {
+          "pass": true,
+          "calls": 1,
+          "tokens": 1222
+        },
+        {
+          "pass": true,
+          "calls": 1,
+          "tokens": 1236
+        }
+      ]
+    },
+    {
+      "id": "t04",
+      "runs": [
+        {
+          "pass": true,
+          "calls": 2,
+          "tokens": 1890
+        },
+        {
+          "pass": true,
+          "calls": 2,
+          "tokens": 1904
+        },
+        {
+          "pass": true,
+          "calls": 2,
+          "tokens": 1918
+        },
+        {
+          "pass": true,
+          "calls": 2,
+          "tokens": 1932
+        },
+        {
+          "pass": true,
+          "calls": 2,
+          "tokens": 1946
+        }
+      ]
+    },
+    {
+      "id": "t05",
+      "runs": [
+        {
+          "pass": true,
+          "calls": 2,
+          "tokens": 1950
+        },
+        {
+          "pass": true,
+          "calls": 2,
+          "tokens": 1964
+        },
+        {
+          "pass": true,
+          "calls": 2,
+          "tokens": 1978
+        },
+        {
+          "pass": true,
+          "calls": 2,
+          "tokens": 1992
+        },
+        {
+          "pass": true,
+          "calls": 2,
+          "tokens": 2006
+        }
+      ]
+    },
+    {
+      "id": "t06",
+      "runs": [
+        {
+          "pass": true,
+          "calls": 3,
+          "tokens": 2340
+        },
+        {
+          "pass": true,
+          "calls": 3,
+          "tokens": 2354
+        },
+        {
+          "pass": true,
+          "calls": 3,
+          "tokens": 2368
+        },
+        {
+          "pass": true,
+          "calls": 3,
+          "tokens": 2382
+        },
+        {
+          "pass": true,
+          "calls": 3,
+          "tokens": 2396
+        }
+      ]
+    },
+    {
+      "id": "t07",
+      "runs": [
+        {
+          "pass": true,
+          "calls": 0,
+          "tokens": 640
+        },
+        {
+          "pass": true,
+          "calls": 0,
+          "tokens": 654
+        },
+        {
+          "pass": true,
+          "calls": 0,
+          "tokens": 668
+        },
+        {
+          "pass": true,
+          "calls": 0,
+          "tokens": 682
+        },
+        {
+          "pass": true,
+          "calls": 0,
+          "tokens": 696
+        }
+      ]
+    },
+    {
+      "id": "t08",
+      "runs": [
+        {
+          "pass": true,
+          "calls": 1,
+          "tokens": 1150
+        },
+        {
+          "pass": true,
+          "calls": 1,
+          "tokens": 1164
+        },
+        {
+          "pass": true,
+          "calls": 1,
+          "tokens": 1178
+        },
+        {
+          "pass": true,
+          "calls": 1,
+          "tokens": 1192
+        },
+        {
+          "pass": true,
+          "calls": 1,
+          "tokens": 1206
+        }
+      ]
+    },
+    {
+      "id": "t09",
+      "runs": [
+        {
+          "pass": true,
+          "calls": 1,
+          "tokens": 1290
+        },
+        {
+          "pass": true,
+          "calls": 1,
+          "tokens": 1304
+        },
+        {
+          "pass": true,
+          "calls": 1,
+          "tokens": 1318
+        },
+        {
+          "pass": true,
+          "calls": 1,
+          "tokens": 1332
+        },
+        {
+          "pass": true,
+          "calls": 1,
+          "tokens": 1346
+        }
+      ]
+    },
+    {
+      "id": "t10",
+      "runs": [
+        {
+          "pass": true,
+          "calls": 1,
+          "tokens": 1310
+        },
+        {
+          "pass": true,
+          "calls": 1,
+          "tokens": 1324
+        },
+        {
+          "pass": true,
+          "calls": 1,
+          "tokens": 1338
+        },
+        {
+          "pass": true,
+          "calls": 1,
+          "tokens": 1352
+        },
+        {
+          "pass": true,
+          "calls": 1,
+          "tokens": 1366
+        }
+      ]
+    }
+  ],
+  "pass_1": 1.0,
+  "pass_5": 1.0
+}

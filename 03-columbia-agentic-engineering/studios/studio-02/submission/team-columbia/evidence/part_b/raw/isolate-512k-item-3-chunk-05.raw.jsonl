@@ -1,0 +1,1 @@
+{"type": "message_end", "message": {"role": "assistant", "stopReason": "end_turn", "content": [{"type": "text", "text": "Mary Field came over this morning and we went down street together."}], "usage": {"input": 78316, "output": 75, "cacheRead": 0, "cacheWrite": 0, "cost": {"total": 0.019669}}}}

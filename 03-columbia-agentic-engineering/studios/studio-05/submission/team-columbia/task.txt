@@ -1,0 +1,1 @@
+Find all SEV-1 incidents for payments-api using search_incidents, retrieve the full root cause and remediation notes for the first matching incident using get_incident_details, and compute the aggregate MTTR statistics for payments-api using compute_mttr_stats.
